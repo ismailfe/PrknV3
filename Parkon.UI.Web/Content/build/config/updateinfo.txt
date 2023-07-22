@@ -1,0 +1,15 @@
++3.0.0.29
+-Bütçe teklifinden sonra satınalma teklifi seçilince combobox disabled yapıldı.
+-Kur çek butonuna aynı zamanda tarihde yazdırıldı.
+-Teklif Oluşturda Default olarak Teklif Durumu Hazırlanıyor yapıldı.
+-Para birimi değşitirdiğinde kur ve tarihi temizleniyor.
+-Versiyonların hepsini, Olumlu, Olumsuz Teklifleri listelemek için butonlar eklendi.
+-Teklif Kodu Teklif tarihine göre verilmesi ayarlandı.
+-Combox'daki verileri alfabetik olarak sıralandırıldı.
+-Teklif Güncelleme aşamasında satınalma ve bütçe teklifi değiştirilemiyor hale getirildi.
+-Teklif Listesinde oluşturma saati çıkarıldı.
+-İsim girilen inputlar otomatik olarak büyük yazmaya ayarlandı.
+-Teklif Listesine, Teklif Türüde eklendi.
+
++3.0.0.30
+-..

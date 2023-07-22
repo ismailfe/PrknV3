@@ -1,0 +1,167 @@
+﻿@using Prkn.UI.Web.Models.ViewModels
+@model Prkn.UI.Web.Models.ViewModels.Parameters
+
+@{
+    ViewBag.Title = Model.HeaderTitle;  //Girilen sayfaya göre ad gelecek
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Düzenle Modal-->
+<div class="modal fade" id="modal-info">
+    <div class="modal-dialog">
+        <div class="modal-content bg-info">
+            <div class="modal-header">
+                <h4 class="modal-title">Kayıt Düzenleme</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Kaydı Değiştirmek İstediğinizden Emin misiniz?&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-outline-light" >Evet</button>
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Hayır</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!--Modal-->
+<div class="modal fade" id="modal-danger">
+    <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+            <div class="modal-header">
+                <h4 class="modal-title">Kayıt SİL</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Kaydı Silmek İstediğinizden Emin Misiniz?&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-outline-light" >Evet</button>
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Hayır</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+
+
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- Form Element sizes -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        @*<h3 class="card-title">Different Height</h3>*@
+                    </div>
+                    <!-- form start -->
+
+                    <div class="card-body">
+
+                        @using (Html.BeginForm("kaydet", "common", FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+
+
+                            // CODE
+                            <div class="form-group">
+                                @*@Html.LabelFor(m => m.Code, new { @class = "col-sm-4 control-label", @for = "in_No" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @type = "number", @placeholder = Model.Code, @id = "in_Code" })
+                                    @Html.ValidationMessageFor(m => m.Code)
+                                </div>
+                            </div>
+                            // ADI
+                            <div class="form-group">
+                                @*@Html.LabelFor(m => m.Name, new { @class = "col-sm-4 control-label", @for = "in_Name" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @type = "text", @placeholder = Model.Name, @id = "in_Name" })
+                                    @Html.ValidationMessageFor(m => m.Name)
+                                </div>
+                            </div>
+
+                            // Açıklama
+                            <div class="form-group">
+                                @*@Html.LabelFor(m => m.Comment, new { @class = "col-sm-4 control-label", @for = "in_Comment" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Comment, new { @class = "form-control", @type = "text", @placeholder = Model.Comment, @id = "in_Comment" })
+                                    @Html.ValidationMessageFor(m => m.Comment)
+                                </div>
+                            </div>
+
+                            @Html.HiddenFor(model => model.Id);
+                            @Html.HiddenFor(model => model.ReturnViewRotate);
+                            @Html.HiddenFor(model => model.ReturnControllerName);
+                            <div class="col-12" style="float:left">
+                                <button type="submit" class="btn btn-success">Kaydet </button>
+                                <button type="reset" class="btn btn-warning">Temizle</button>
+
+                                <a class="btn btn-block col-2 float-right" onclick='javascript: history.go(-1)' style="background-color:lightgray; margin-top: 3px;">GERİ </a>
+                            </div>
+
+
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        @*<h3 class="card-title">Different Height</h3>*@
+                    </div>
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Kodu</th>
+                                    <th>Adı</th>
+                                    <th>Açıklama</th>
+                                    <th class="text-right py-0 align-middle">Değiştir / Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @for (int i = 0; i < Model.ListId.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Model.ListId[i]</td>
+                                        <td>@Model.ListCode[i]</td>
+                                        <td>@Model.ListName[i]</td>
+                                        <td>@Model.ListComment[i]</td>
+                                        <td class="text-right py-0 align-middle">
+
+                                            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#modal-info"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                        
+                                
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </section>

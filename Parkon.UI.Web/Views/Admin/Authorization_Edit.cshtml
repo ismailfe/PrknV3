@@ -1,0 +1,173 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.ParametersList
+@using Prkn.Common.Enums;
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--Üst Kısım Veri Griş Bölümü-->
+<!-- Main content -->
+<section class="content">
+   
+
+        <div class="container-fluid">
+            <div class="row">
+                <!--Tek Kart-->
+                <div class="col-md-12">
+                    
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <div class="card-body">
+
+                            <!--Grup yada Kullanıcı Radio Seçim-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="icheck-orange d-inline">
+                                            <input type="radio" id="radioGroup" name="r1" checked>
+                                            <label for="radioGroup">
+                                                Grup
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="icheck-success d-inline">
+                                            <input type="radio" id="radioUser" name="r1">
+                                            <label for="radioUser">
+                                                Kullanıcı
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Radio Seçim ./-->
+
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-6">
+                                    <!-- Form Element sizes -->
+                                    <div class="card-body">
+                                        <!-- Adı -->
+                                        <div class="form-group">
+
+                                            <input type="text" class="form-control" placeholder="Grup Adı Giriniz..." name="grupname">
+                                            @*
+        @Html.TextBoxFor(m => m.Prm.NameFirst, new { @type = "text", @class = "form-control", @placeholder = "İsim Giriniz...", @id = "namefirst" })
+        @Html.ValidationMessageFor(m => m.Prm.NameFirst)
+
+                                            *@
+                                        </div>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <!-- /.card -->
+                                </div>
+                                <!--/.col (left) -->
+                                <!--Sağ kolon-->
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <select class="dropdown form-control">
+                                                <option>Mustafa 1</option>
+                                                <option>Mustafa 2</option>
+                                                <option>Mustafa 3</option>
+                                            </select>
+                                           
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <hr />
+
+                            @for (int i = 0; i < Model.Prm.Count; i=i+4)
+                            {
+                        <div class="row">
+                            @for (int k = 0; k < 4; k++)
+                            {
+                                if (i+k < Model.Prm.Count)
+                                {
+                                    <div class="col-sm-3">
+                                        <!-- checkbox -->
+                                        <div class="form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="checkbox" id="@Model.Prm[k + i].Name">
+                                                <label for="@Model.Prm[k + i].Name">
+                                                    @Model.Prm[k + i].Name
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                            }
+
+
+                                    <br />
+                                    <br />
+
+                                    @*
+                <!--Yetkilendirme-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Yetki Tanımlama:</label>
+                            <select class="duallistbox" multiple="multiple">
+                                <option selected>Teklif(OKU)</option>
+                                <option>Teklif(YAZ)</option>
+                                <option>Teklif(SİL)</option>
+                                <option>Teklif(Gizle)</option>
+                                <option>Müşteri(OKU)</option>
+                                <option>Müşteri(YAZ)</option>
+                                <option>Müşteri(SİL)</option>
+                                <option>Müşteri(GİZLE)</option>
+                                <option>ADMİN</option>
+                            </select>
+                        </div>
+                        <!-- /.form-group -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <!--Yetikelndirme /.-->
+                                    *@
+                                </div>
+                            </div>
+                </div>
+                <!--/. Tek Kart-->
+            </div>
+
+            <div class="card-footer">
+                <div class="col-lg-4">
+                    <div class="btn-group w-100 btn-lg">
+
+                            <button type="submit" class="btn btn-success col fileinput-button" value="btn_create">
+                                <i class="fas fa-plus"></i>
+                                <span>Grup Oluştur</span>
+                            </button>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+<!--/. Üst Kısım-->
+
+<script>
+    $(function () {
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox();
+    });
+</script>
+
+

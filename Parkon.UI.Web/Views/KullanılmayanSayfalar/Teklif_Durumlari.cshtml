@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "Teklif_Durumlari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <!--Üst Kısım Veri Griş Bölümü-->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- Form Element sizes -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <!-- form start -->
+                        <form>
+                            <div class="card-body">
+
+                                <!-- Teklif Adı -->
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teklif Durum Adını Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teklif Durum Kod Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Açıklama Giriniz">
+                                </div>
+                                <br />
+                                <div class="col-12">
+
+                                    <input type="submit" value="Kaydet" class="btn btn-success float-left">
+                                </div>
+                                <br />
+
+                            </div>
+                            <!-- /.card-body -->
+
+                        </form>
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!--/.col (right) -->
+
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Quick Example</h3>*@
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <div class="card-body">
+                            <!-- /.card-header -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Kodu</th>
+                                        <th>Adı</th>
+                                        <th>Açıklama</th>
+                                        <th class="text-right py-0 align-middle">Değiştir / Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>AÇIK</td>
+                                        <td>Hazırlanıyor</td>
+                                        <td>49.8005 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td>Açık</td>
+                                        <td>Müşteride</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : Olumlu</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : Olumsuz</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : Ertelendi</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : İptal</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : Başka Bir Teklife Dönüştürüldü</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kapalı</td>
+                                        <td>Sonuçlandı : Yeni Versiyon Talebi</td>
+                                        <td>28.4883 kb</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /.content -->
+
+
+

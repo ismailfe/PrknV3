@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Upload_File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--İçerikler Buraya-->
+<section class="content">
+    <div class="container-fluid">
+        <!--Deneme Alanı-->
+        <div class="card card-primary">
+            <div class="card-header">
+                @*<h3 class="card-title">Quick Example</h3>*@
+            </div>
+            <!-- /.card-header -->
+
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        @using (Ajax.BeginForm("UploadOfferFile", new { id = 5 }, new AjaxOptions { HttpMethod = "POST" }, new {  @id = "mydropzone",@class="dropzone", @enctype = "multipart/form-data" }))
+                        {
+
+
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">PROJE ARA</button>
+            </div>
+
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /. İçerikler Buraya-->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+     //  document.getElementById("mydropzone").className = "dropzone";
+        document.getElementById("mydropzone").autoDiscover = false;
+        document.getElementById("mydropzone").autoProcessQueue = false;
+
+    });
+
+    function read_data(getId)
+    {
+        //Burda asenkron olarak controllerdaki methodumuzu çalıştırıp geri dönen değeri alıyoruz.
+        $.ajax({
+            method: "GET",
+            url: '@Url.Action("OfferModalReadData", "Teklif")' + '/' + getId,
+        }).done(function (result) {
+
+
+            //Burda Controller tarafındaki methoddan dönen  değerleri resulın içinden okuyoruz.
+            console.log(result);
+
+      //      document.getElementById("offerCode").innerText = result.Code;
+     //       document.getElementById("offerVersiyon").innerText = result.VerCode;
+       //     document.getElementById("offerName").innerText = result.Name;
+
+        });
+
+
+    }
+
+</script>
+
+@section _Scripts
+    {
+    <script type="text/javascript">
+
+        
+        Dropzone.autoDiscover = false;
+        $(function () {
+            
+            $("#mydropzone").dropzone({
+                autoDiscover=false,
+                autoProcessQueue=false,
+            });
+
+        });
+
+    </script>
+}

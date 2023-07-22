@@ -1,0 +1,222 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.ProjectList
+@using Prkn.Common.Enums;
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--İçerikler Buraya-->
+<!--Üst Kısım Veri Griş Bölümü-->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>@Model.ProjectCount </h3>
+
+                        <p>Oluşturulan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-creative-commons-share"></i>
+                    </div>
+                    <a href="@Url.Action("ProjeListele", "Proje")" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            @*
+                <div class="col-lg-2 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-gradient-orange">
+                        <div class="inner">
+                            <h3>@Model.OfferSuccessCount<sup style="font-size: 20px">%</sup></h3>
+                            <p>Teklif Kabul Oranı</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-chart-line"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            *@
+
+            @*
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-gradient-blue">
+                        <div class="inner">
+                            <h3>@Model.OfferWaitingreplyCount</h3>
+
+                            <p>Cevap Bekleyen</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            *@
+
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="row inner">
+                        <div class="col-6">
+                            <h3>@*Model.OfferPreparationCount *@ ---</h3>
+                            <p>Hazırlanmakta</p>
+                            <div class="icon">
+                                <i class="fas fa-spinner"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h3>@*Model.OfferWaitingreplyCount *@ ---</h3>
+                            <p>Cevap Bekleyen</p>
+                            <div class="icon">
+                                <i class="fas fa-reply"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ProjeListele", "Proje")" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <!-- ./col -->
+            <div class="col-lg-3 col-12">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>@*Model.OfferSuccessCount *@ ---<sup style="font-size: 20px">  %@*Model.OfferAcceptenceRate *@ ---</sup></h3>
+                        <p>Başarılı</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="row inner">
+                        <div class="col-6">
+                            <h3>@*Model.OfferNegativeCount *@ ---<sup style="font-size: 20px">  %@*Model.OfferNegativeRate *@ ---</sup></h3>
+                            <p>Olumsuz Sonuçlanan</p>
+                            <div class="icon">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h3>@* Model.OfferOtherResultCount *@ ---<sup style="font-size: 20px">  %@*Model.OfferOtherResultRate *@ ---</sup></h3>
+                            <p>Diğer</p>
+                            <div class="icon">
+                                <i class="fa fa-list-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<hr />
+<!--/. Üst Kısım-->
+<!--İçerikler Buraya-->
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Proje Listesi</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Kodu</th>
+                    <th>Müşteri</th>
+                    <th>Bölüm</th>
+                    <th>Proje Adı</th>
+                    <!--<th>Durum</th> -->
+                   <!-- <th>Sorumlusu</th> -->
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    @if (Model.TableMode == 1)
+                    {
+                        <th> Sonuç Tarihi </th>
+                    }
+
+                    <th>Dosya Yükle</th>
+                    <th>Güncelle</th>
+
+                    <th>SİL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Prm.Count; i++)
+                {
+                <tr>
+                    <td>@Model.Prm[i].Code </td>
+
+                    <td>@Model.Customers[i].Name </td>
+                    <td>@Model.Customer_Section[i].Name </td>
+                    <td>@Model.Prm[i].Name </td>
+                    <!--   <td align="center">
+                @*   <span class="badge badge-(Model.Offer_Status[i].Name == " HAZIRLANIYOR" ? "warning" : "" )@(Model.Offer_Status[i].Name= ="MUSTERIDE" ? "warning" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : OLUMLU" ? "success" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : OLUMSUZ" ? "danger" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : ERTELENDI" ? "danger" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : IPTAL" ? "danger" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : BASKA BIR TEKLIFE DONUSTURULDU" ? "danger" : "" )@(Model.Offer_Status[i].Name= ="SONUCLANDI : YENI VERSIYON TALEBI" ? "danger" : "" ) ">
+                *@
+                @*Model.Offer_Status[i].Name
+    </span> *@
+            </td> -->
+                    <!--    <td>@*Model.Users[i].Name *@</td> -->
+                    <td>@Model.Prm[i].DateStart </td>
+                    @if (Model.TableMode == 1)
+                    {
+                        <td>@*Model.Prm[i].DateEnd*@</td>
+                    }
+
+
+                    <td></td>
+                    <!--  <td><button class="btn btn-block btn-primary" onclick="myFunction('@*Model.Prm[i].Id *@')"><i class="fas fa-upload"></i> </button></td>-->
+                    <td>@*<a href="@Url.Action("DosyaYukle/" + Model.Prm[i].Id, "Media")" target="_blank" type="button" class="btn btn-block btn-primary"><i class="fas fa-upload"></i> </a>*@</td>
+                    <td>@*<a href="@Url.Action("TeklifDuzenle/" + IslemTuru.Update + "/" + Model.Prm[i].Id, "Teklif")" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a>*@</td>
+
+                    <td>@*<a href="@Url.Action("TeklifDuzenle/" + IslemTuru.Delete + "/" + Model.Prm[i].Id, "Teklif")" type="button" class="btn btn-danger"><i class="fas fa-trash"></i> </a>*@</td>
+
+                </tr>
+                }
+            </tbody>
+            <!--<tfoot>
+                <tr>
+                    <th>Teklif Kodu</th>
+                    <th>Versiyon</th>
+                    <th>Teklif Adı</th>
+                    <th>Durum</th>
+                    <th>Teklifi Oluşturan Kişi</th>
+                    <th>Müşteri</th>
+                    <th>Bölüm</th>
+                    <th>Oluşturma Tarihi</th>
+                    @if (Model.TableMode == 1)
+                    {
+                        <th>Sonuç Tarihi</th>
+                    }
+                    <th>Gerçek Maliyet</th>
+                    <th>Hedeflenen Maliyet</th>
+                    <th>Teklif Fiyatı</th>
+                    <th>Para Birimi</th>
+                    <th>Güncelle</th>
+                    <th>Versiyon Oluştur</th>
+                    <th>SİL</th>
+                </tr>
+            </tfoot>-->
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- /. İçerikler Buraya-->

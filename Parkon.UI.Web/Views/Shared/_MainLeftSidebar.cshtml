@@ -1,0 +1,338 @@
+﻿
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+        <img src="~/Content/dist/img/PardusLogo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Prkn</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <!--Login olmadan giriş yapılınca sessiondan hata almamak için yapıldı-->
+                @try
+                {
+                    if (Session["UserPic"] == null || (string)Session["UserPic"] == "")
+                    {
+                        Session["UserPic"] = "~/Content/dist/img/avatar5.png";
+                    }
+
+                    <img src="@Url.Content((string)Session["UserPic"])" width="160" height="160" class="img-circle elevation-2" alt="User Image">
+
+                }
+                catch (Exception)
+                {
+
+                }
+
+            </div>
+            <div class="info">
+                <a href="#" class="d-block"> @Session["UserNameFirst"] @Session["UserNameLast"] </a>
+
+            </div>
+        </div>
+
+        <!--Menülerde arama işlemi-->
+        <!-- SidebarSearch Form -->
+        <!--
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        -->
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+                <li class="nav-header">MENÜLER</li>
+
+                <!--Teklif Menüsü-->
+                <li class="nav-item @(ViewBag.Title=="TEKLİF OLUŞTUR"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF GÜNCELLE"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF SİL"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF LİSTELE"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF TÜRLERİ"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF TALEP TÜRLERİ"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF TALEP KAYNAKLARI"?"menu-open":"")
+                    @(ViewBag.Title=="TEKLİF DURUMLARI"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewBag.Title=="TEKLİF OLUŞTUR"?"active":"")
+                    @(ViewBag.Title=="TEKLİF GÜNCELLE"?"active":"")
+                    @(ViewBag.Title=="TEKLİF SİL"?"active":"")
+                       @(ViewBag.Title=="TEKLİF LİSTELE"?"active":"")
+                       @(ViewBag.Title=="TEKLİF TÜRLERİ"?"active":"")
+                       @(ViewBag.Title=="TEKLİF TALEP TÜRLERİ"?"active":"")
+                       @(ViewBag.Title=="TEKLİF TALEP KAYNAKLARI"?"active":"")
+                       @(ViewBag.Title=="TEKLİF DURUMLARI"?"active":"")">
+                        <i class="nav-icon fas fa-gavel"></i>
+                        <p>
+                            Teklif
+                            <i class="fas fa-angle-left right"></i>
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+
+                            <a href="@Url.Action("TeklifDuzenle/Insert/0","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF OLUŞTUR"?"active":"")@(ViewBag.Title=="TEKLİF GÜNCELLE"?"active":"")@(ViewBag.Title=="TEKLİF SİL"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Oluştur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("TeklifListele","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF LİSTELE"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Listele</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Ayar/Parametre</li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("TeklifTurleri","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF TÜRLERİ"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Türleri</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("TeklifTalepTurleri","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF TALEP TÜRLERİ"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Talep Türleri</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("TeklifTalepKaynaklari","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF TALEP KAYNAKLARI"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Talep Kaynakları</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("TeklifDurumlari","Teklif")" class="nav-link @(ViewBag.Title=="TEKLİF DURUMLARI"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Teklif Durumları</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!--./Teklif Menüsü-->
+                <!--Proje Menüsü-->
+                <li class="nav-item @(ViewBag.Title=="Proje_Sorgula"?"menu-open":"")
+                    @(ViewBag.Title=="Proje_Olustur"?"menu-open":"")
+                    @(ViewBag.Title=="Proje_Duzenle"?"menu-open":"")
+                    @(ViewBag.Title=="PROJE LİSTELE"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewBag.Title=="Proje_Sorgula"?"active":"")
+                       @(ViewBag.Title=="Proje_Olustur"?"active":"")
+                       @(ViewBag.Title=="Proje_Duzenle"?"active":"")
+                       @(ViewBag.Title=="PROJE LİSTELE"?"active":"")">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Proje
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("ProjeListele","Proje")" class="nav-link @(ViewBag.Title=="PROJE LİSTELE"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Proje Listele</p>
+                            </a>
+                        </li>
+                        @*
+        <li class="nav-item">
+            <a href="#" class="nav-link @(ViewBag.Title=="Proje_Sorgula"?"active":"")">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Sorgula</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link @(ViewBag.Title=="Proje_Olustur"?"active":"")">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Yeni Proje</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link @(ViewBag.Title=="Proje_Duzenle"?"active":"")">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Yeni Revizyon</p>
+            </a>
+        </li>
+                        *@
+                    </ul>
+                </li>
+                <!-- ./Proje Menüsü-->
+                <!--Müşteriler Menüsü-->
+                <li class="nav-item @(ViewBag.Title=="MÜŞTERİ ŞİRKET REHBERİ"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ OLUŞTUR"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ BÖLÜM LİSTESİ"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ BÖLÜM OLUŞTUR"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ KİŞİ LİSTESİ"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ KİŞİ OLUŞTUR"?"menu-open":"")
+                    @(ViewBag.Title=="MÜŞTERİ TÜRÜ"?"menu-open":"")
+                    @(ViewBag.Title=="Musteri_Kisi_Unvan"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewBag.Title=="MÜŞTERİ ŞİRKET REHBERİ"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ OLUŞTUR"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ BÖLÜM LİSTESİ"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ BÖLÜM OLUŞTUR"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ KİŞİ OLUŞTUR"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ KİŞİ LİSTESİ"?"active":"")
+                       @(ViewBag.Title=="MÜŞTERİ TÜRÜ"?"active":"")">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Müşteriler
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("MusteriRehberi","Musteri")" class="nav-link @(ViewBag.Title=="MÜŞTERİ ŞİRKET REHBERİ"?"active":"")@(ViewBag.Title=="MÜŞTERİ OLUŞTUR"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Müşteri Şirket Rehberi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("MusteriKisi","Musteri")" class="nav-link @(ViewBag.Title=="MÜŞTERİ KİŞİ LİSTESİ"?"active":"")
+                               @(ViewBag.Title=="MÜŞTERİ KİŞİ OLUŞTUR"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Müşteri Kişi Listesi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("MusteriBolumu","Musteri")" class="nav-link @(ViewBag.Title=="MÜŞTERİ BÖLÜM LİSTESİ"?"active":"")@(ViewBag.Title=="MÜŞTERİ BÖLÜM OLUŞTUR"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Müşteri Bölümü</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("MusteriTuru","Musteri")" class="nav-link @(ViewBag.Title=="MÜŞTERİ TÜRÜ"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Müşteri Türleri</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Müşteriler menü-->
+                <!--Yönetici Menüsü-->
+                <li class="nav-item @(ViewBag.Title=="DEPARTMAN"?"menu-open":"")
+                    @(ViewBag.Title=="YETKİ SEVİYELERİ"?"menu-open":"")
+                    @(ViewBag.Title=="ÜNVAN"?"menu-open":"")
+                    @(ViewBag.Title=="ADRES BÖLGE"?"menu-open":"")
+                    @(ViewBag.Title=="ANAHTAR KELİMELER"?"menu-open":"")
+                    @(ViewBag.Title=="PARA BİRİMİ"?"menu-open":"")
+                    @(ViewBag.Title=="KULLANICILAR"?"menu-open":"")
+                    @(ViewBag.Title=="KULLANICI OLUŞTUR"?"menu-open":"")
+                    @(ViewBag.Title=="YETKİLENDİRME"?"menu-open":"")
+                    @(ViewBag.Title=="YETKİLENDİRME LİSTELERİ"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewBag.Title=="DEPARTMAN"?"active":"")
+                       @(ViewBag.Title=="YETKİ SEVİYELERİ"?"active":"")
+                       @(ViewBag.Title=="ÜNVAN"?"active":"")
+                       @(ViewBag.Title=="ADRES BÖLGE"?"active":"")
+                       @(ViewBag.Title=="ANAHTAR KELİMELER"?"active":"")
+                       @(ViewBag.Title=="PARA BİRİMİ"?"active":"")
+                       @(ViewBag.Title=="KULLANICILAR"?"active":"")
+                       @(ViewBag.Title=="KULLANICI OLUŞTUR"?"active":"")
+                       @(ViewBag.Title=="YETKİLENDİRME"?"active":"")
+                       @(ViewBag.Title=="YETKİLENDİRME LİSTELERİ"?"active":"")">
+                        <i class="nav-icon fas fa-user-cog"></i>
+                        <p>
+                            Yönetici<i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item menu- @(ViewBag.Title=="DEPARTMAN"?"menu-open":"")
+                            @(ViewBag.Title=="YETKİ SEVİYELERİ"?"menu-open":"")
+                            @(ViewBag.Title=="KULLANICILAR"?"menu-open":"")
+                            @(ViewBag.Title=="KULLANICI OLUŞTUR"?"menu-open":"")
+                            @(ViewBag.Title=="YETKİLENDİRME"?"menu-open":"")
+                            @(ViewBag.Title=="YETKİLENDİRME LİSTELERİ"?"menu-open":"")">
+                            <a href="#" class="nav-link @(ViewBag.Title=="DEPARTMAN"?"active":"")
+                               @(ViewBag.Title=="YETKİ SEVİYELERİ"?"active":"")
+                               @(ViewBag.Title=="KULLANICILAR"?"active":"")
+                               @(ViewBag.Title=="KULLANICI OLUŞTUR"?"active":"")
+                               @(ViewBag.Title=="YETKİLENDİRME"?"active":"")
+                               @(ViewBag.Title=="YETKİLENDİRME LİSTELERİ"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Kullanıcı İşlemleri
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Kullanici","Admin")" class="nav-link @(ViewBag.Title=="KULLANICILAR"?"active":"")@(ViewBag.Title=="KULLANICI OLUŞTUR"?"active":"")">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kullanıcılar</p>
+                                    </a>
+                                </li>
+                                <!--
+    <li class="nav-item">
+        <a href="@Url.Action("Yetkilendirme","Admin")" class="nav-link @(ViewBag.Title=="YETKİLENDİRME"?"active":"")@(ViewBag.Title=="YETKİLENDİRME LİSTELERİ"?"active":"")">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Yetkilendirme</p>
+        </a>
+    </li>
+        -->
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Departman","Admin")" class="nav-link @(ViewBag.Title=="DEPARTMAN"?"active":"")">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Departman Düzenle</p>
+                                    </a>
+                                </li>
+                                <!--
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Kullanıcı Ekranı</p>
+        </a>
+    </li>
+        -->
+                                <li class="nav-item">
+                                    <a href="@Url.Action("YetkiSeviyeleri","Admin")" class="nav-link @(ViewBag.Title=="YETKİ SEVİYELERİ"?"active":"")">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Yetki Alanları</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Unvan","Musteri")" class="nav-link @(ViewBag.Title=="ÜNVAN"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ünvan Düzenle</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("AdresBölge","Admin")" class="nav-link @(ViewBag.Title=="ADRES BÖLGE"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Adres Bölge Düzenle</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Keyword","Admin")" class="nav-link @(ViewBag.Title=="ANAHTAR KELİMELER"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Keyword Düzenle</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("ParaBirimi","Admin")" class="nav-link @(ViewBag.Title=="PARA BİRİMİ"?"active":"")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Para Birimi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--/. Yönetici Menüsü-->
+
+            </ul>
+</nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

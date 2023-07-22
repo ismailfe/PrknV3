@@ -1,0 +1,255 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.CustomerPersonelEdit
+@using Prkn.Common.Enums;
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("_ModalEdit")
+
+@if (Model.ModalStatus == "insert" || Model.ModalStatus == "update" || Model.ModalStatus == "delete")
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modal-edit").modal("show");
+        });
+    </script>
+}
+<!--Üst Kısım Veri Griş Bölümü-->
+<!-- Main content -->
+<section class="content">
+    @using (Html.BeginForm(Model.FromRoute, Model.FromController, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+    {
+        <div class="container-fluid">
+
+            <div class="row">
+                <!--Tek Kart-->
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- Profile Image -->
+                                <div class="col-md-2">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                 src="@Url.Content(Model.Prm.Pic)"
+                                                 alt="User profile picture">
+                                        </div>
+                                        <h3 class="profile-username text-center">-Ad Soyad-</h3>
+                                        <p class="text-muted text-center">-Görev / İş-</p>
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <div class="form-group row">
+                                                    <label for="inputName" class="col-sm-5 col-form-label float-left">Puan :</label>
+                                                    <div class="col-sm-5">
+                                                        @Html.TextBoxFor(m => m.Prm.Score, new { @type = "number", @class = "form-control", @min = "0", @max = "10", @id = "score" })
+                                                        @Html.ValidationMessageFor(m => m.Prm.Score)
+                                                        <!--<input type="number" class="form-control" value="2" />-->
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <label class="col-form-label float-right">/10</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                        <input class="btn btn-primary btn-block" type="file" name="ImageFile" />
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                </div>
+                                <!-- /.card -->
+                                <!-- left column -->
+
+                                <div class="col-md-5">
+                                    <!-- Form Element sizes -->
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("MusteriRehberi/" + IslemTuru.Insert + "/0", "Musteri")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+                                            @Html.DropDownListFor(m => m.Prm.CustomerId, new SelectList(Model.Customer, "Id", "Name"), "-Müşteri Seçiniz-", new { @class = "dropdown form-control", @id = "CustomerSelect", @required = "" })
+
+                                        </div>
+
+                                        <!-- Bölüm Adı -->
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.Prm.NameFirst, new { @type = "text", @class = "form-control", @placeholder = "İsim Giriniz...", @id = "namefirst", @required = "" })
+                                            @Html.ValidationMessageFor(m => m.Prm.NameFirst)
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.Prm.NameLast, new { @type = "text", @class = "form-control", @placeholder = "Soyisim Giriniz...", @id = "namelast", @required = "" })
+                                            @Html.ValidationMessageFor(m => m.Prm.NameLast)
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label>Select</label>*@
+                                            <select class="form-control">
+                                                <option>-Cinsiyet Seçiniz-</option>
+                                                <option>Kadın</option>
+                                                <option>Erkek</option>
+                                                <option>....</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("Unvan", "Musteri")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+
+                                            @Html.DropDownListFor(m => m.Prm.TitleId, new SelectList(Model.Title, "Id", "Name"), "-Ünvan Seçiniz-", new { @class = "dropdown form-control", @id = "TitleSelect", @required = "" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.Prm.Job, new { @type = "text", @class = "form-control", @placeholder = "Görev/İş", @id = "job", @required = "" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Job)
+                                        </div>
+                                        <!-- Adres Bölümü -->
+
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(m => m.Prm.Info, new { @class = "form-control", @row = "4", @placeholder = "Detaylı Bilgi...", @id = "info" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Info)
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <!-- /.card -->
+
+                                </div>
+
+                                <!--/.col (left) -->
+                                <!-- right column -->
+                                <div class="col-md-5">
+                                    <!-- Form Element sizes -->
+
+                                    <div class="card-body">
+
+                                        <!-- Telefon 1 -->
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.Phone1, new { @type = "text", @class = "form-control", @placeholder = "Telefon 1 Giriniz...", @id = "phonenumber1", @data_inputmask = "'mask': '(999) 999-9999'", data_mask = "", @required = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.Phone1)
+                                            </div>
+                                        </div>
+                                        <!-- Telefon 2 -->
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.Phone2, new { @type = "text", @class = "form-control", @placeholder = "Telefon 2 Giriniz...", @id = "phonenumber2", @data_inputmask = "'mask': '(999) 999-9999'", data_mask = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.Phone2)
+                                            </div>
+                                        </div>
+                                        <!-- Mail 1 -->
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.Mail1, new { @type = "email", @class = "form-control", @placeholder = "Mail-1 Giriniz..", @id = "mail1" })
+                                                @Html.ValidationMessageFor(m => m.Prm.Mail1)
+                                            </div>
+                                        </div>
+                                        <!-- Mail 2 -->
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.Mail2, new { @type = "email", @class = "form-control", @placeholder = "Mail-2 Giriniz..", @id = "mail2" })
+                                                @Html.ValidationMessageFor(m => m.Prm.Mail2)
+                                            </div>
+                                        </div>
+
+                                        <!-- Açıklama Bölümü -->
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(m => m.Prm.Comment, new { @class = "form-control", @row = "2", @placeholder = "Açıklama Giriniz...", @id = "txt_Comment" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Comment)
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(m => m.Prm.Keyword, new { @type = "text", @class = "form-control", @placeholder = "Anahtar Kelime Giriniz...", @id = "Keyword" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Keyword)
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <!-- /.card -->
+
+
+                                </div>
+                                <!--/.col (right) -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/. Tek Kart-->
+
+            </div>
+            @Html.HiddenFor(model => model.Prm.Id)
+            @Html.HiddenFor(model => model.IslemTuru)
+            @Html.HiddenFor(model => model.HeaderTitle)
+            @Html.HiddenFor(model => model.FromRoute)
+            @Html.HiddenFor(model => model.FromController)
+            @Html.HiddenFor(model => model.Prm.Pic)
+            <div class="card-footer">
+
+                <div class="col-lg-4">
+                    <div class="btn-group w-100 btn-lg">
+                        @if (Model.IslemTuru == IslemTuru.Insert)
+                        {
+                            <button type="submit" class="btn btn-success col fileinput-button" value="Bölüm Oluştur">
+                                <i class="fas fa-plus"></i>
+                                <span>Kişi Kaydı Oluştur</span>
+                            </button>
+                        }
+                        else if (Model.IslemTuru == IslemTuru.Update)
+                        {
+                            <button type="submit" class="btn btn-warning col cancel" value="Güncelle" id="btn_update">
+                                <i class="fas fa-sync"></i>
+                                <span>Güncelle</span>
+                            </button>
+                            <button type="button" class="btn btn-primary col start" id="btn_saveas">
+                                <i class="fas fa-clone"></i>
+                                <span>Farklı Kaydet</span>
+                            </button>
+                        }
+                        else if (Model.IslemTuru == IslemTuru.Delete)
+                        {
+                            <button type="submit" class="btn btn-danger col fileinput-button" value="SİL" id="btn_delete">
+                                <i class="fas fa-trash"></i>
+                                <span>Kişiyi SİL</span>
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+    }
+</section>
+<!-- /.content -->
+<!--/. Üst Kısım-->
+
+@section _Scripts
+    {
+    <script>
+        //Adı ve kodu büyük yazmak için
+        $('#namefirst').keyup(function () {
+            this.value = this.value.toUpperCase();
+        });
+        $('#namelast').keyup(function () {
+            this.value = this.value.toUpperCase();
+        });
+
+    </script>
+}

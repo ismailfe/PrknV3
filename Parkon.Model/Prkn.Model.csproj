@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11CE7698-37C4-4D76-8B7F-3E2BDE7BDC60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prkn.Model</RootNamespace>
+    <AssemblyName>Prkn.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.4.4\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbParkon\Entities\Base\BaseCurrency.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseCustomers.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseCustomer_Contact.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseCustomer_Section.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseCustomer_Type.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseKeyword.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseMeetings.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseMeeting_Content.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseMeeting_JoinUser.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseMeeting_Status.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseMeeting_Type.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffers.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffer_Details.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffer_RequestSource.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffer_RequestType.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffer_Status.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseOffer_Type.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseProjects.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseProject_Detail.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseProject_Rev.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseSoftwareVersion.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Address.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_AddressCol.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_AddressPos.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_AddressRow.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_AddressZone.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Brand.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Location.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Logs.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_OutAction.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Product.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_ProductBlock.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_ProductGroup.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_ProductType.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_ProductUnit.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_Warehouse.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseStore_WarehouseOut.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseSuppliers.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseSupplier_Contact.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseSupplier_Section.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseSupplier_Type.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTasks.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTask_Priority.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTask_Status.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTask_SubjectPrefix.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTask_Type.cs" />
+    <Compile Include="DbParkon\Entities\Base\Basetest.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseTitle.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUsers.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Access.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Authorization.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Department.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Level.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Logs.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Online.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseUser_Screen.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseZone.cs" />
+    <Compile Include="DbParkon\Entities\Currency.cs" />
+    <Compile Include="DbParkon\Entities\Customers.cs" />
+    <Compile Include="DbParkon\Entities\Customer_Contact.cs" />
+    <Compile Include="DbParkon\Entities\Customer_Section.cs" />
+    <Compile Include="DbParkon\Entities\Customer_Type.cs" />
+    <Compile Include="DbParkon\Entities\Offers.cs" />
+    <Compile Include="DbParkon\Entities\Offer_Details.cs" />
+    <Compile Include="DbParkon\Entities\Offer_RequestSource.cs" />
+    <Compile Include="DbParkon\Entities\Offer_RequestType.cs" />
+    <Compile Include="DbParkon\Entities\Offer_Status.cs" />
+    <Compile Include="DbParkon\Entities\Offer_Type.cs" />
+    <Compile Include="DbParkon\Entities\SoftwareVersion.cs" />
+    <Compile Include="DbParkon\Entities\Keyword.cs" />
+    <Compile Include="DbParkon\Entities\Meetings.cs" />
+    <Compile Include="DbParkon\Entities\Meeting_Content.cs" />
+    <Compile Include="DbParkon\Entities\Meeting_JoinUser.cs" />
+    <Compile Include="DbParkon\Entities\Meeting_Status.cs" />
+    <Compile Include="DbParkon\Entities\Meeting_Type.cs" />
+    <Compile Include="DbParkon\Entities\Projects.cs" />
+    <Compile Include="DbParkon\Entities\Project_Detail.cs" />
+    <Compile Include="DbParkon\Entities\Project_Rev.cs" />
+    <Compile Include="DbParkon\Entities\Store_Address.cs" />
+    <Compile Include="DbParkon\Entities\Store_AddressCol.cs" />
+    <Compile Include="DbParkon\Entities\Store_AddressPos.cs" />
+    <Compile Include="DbParkon\Entities\Store_AddressRow.cs" />
+    <Compile Include="DbParkon\Entities\Store_AddressZone.cs" />
+    <Compile Include="DbParkon\Entities\Store_Brand.cs" />
+    <Compile Include="DbParkon\Entities\Store_Location.cs" />
+    <Compile Include="DbParkon\Entities\Store_Logs.cs" />
+    <Compile Include="DbParkon\Entities\Store_OutAction.cs" />
+    <Compile Include="DbParkon\Entities\Store_Product.cs" />
+    <Compile Include="DbParkon\Entities\Store_ProductBlock.cs" />
+    <Compile Include="DbParkon\Entities\Store_ProductGroup.cs" />
+    <Compile Include="DbParkon\Entities\Store_ProductType.cs" />
+    <Compile Include="DbParkon\Entities\Store_ProductUnit.cs" />
+    <Compile Include="DbParkon\Entities\Store_Warehouse.cs" />
+    <Compile Include="DbParkon\Entities\Store_WarehouseOut.cs" />
+    <Compile Include="DbParkon\Entities\Suppliers.cs" />
+    <Compile Include="DbParkon\Entities\Supplier_Contact.cs" />
+    <Compile Include="DbParkon\Entities\Supplier_Section.cs" />
+    <Compile Include="DbParkon\Entities\Supplier_Type.cs" />
+    <Compile Include="DbParkon\Entities\Tasks.cs" />
+    <Compile Include="DbParkon\Entities\Task_Priority.cs" />
+    <Compile Include="DbParkon\Entities\Task_Status.cs" />
+    <Compile Include="DbParkon\Entities\Task_Type.cs" />
+    <Compile Include="DbParkon\Entities\Task_SubjectPrefix.cs" />
+    <Compile Include="DbParkon\Entities\Title.cs" />
+    <Compile Include="DbParkon\Entities\Users.cs" />
+    <Compile Include="DbParkon\Entities\User_Screen.cs" />
+    <Compile Include="DbParkon\Entities\User_Access.cs" />
+    <Compile Include="DbParkon\Entities\User_Authorization.cs" />
+    <Compile Include="DbParkon\Entities\User_Department.cs" />
+    <Compile Include="DbParkon\Entities\User_Level.cs" />
+    <Compile Include="DbParkon\Entities\User_Logs.cs" />
+    <Compile Include="DbParkon\Entities\User_Online.cs" />
+    <Compile Include="DbParkon\Entities\Zone.cs" />
+    <Compile Include="DbParkon\Attributes\Zorunlu.cs" />
+    <Compile Include="DbParkon\Entities\Base\BaseEntity.cs" />
+    <Compile Include="DbParkon\Entities\Base\Interfaces\IBaseEntity.cs" />
+    <Compile Include="DbParkon\Mirror\Currency.cs" />
+    <Compile Include="DbParkon\Mirror\Customers.cs" />
+    <Compile Include="DbParkon\Mirror\Customer_Contact.cs" />
+    <Compile Include="DbParkon\Mirror\Customer_Section.cs" />
+    <Compile Include="DbParkon\Mirror\Customer_Type.cs" />
+    <Compile Include="DbParkon\Mirror\Keyword.cs" />
+    <Compile Include="DbParkon\Mirror\Meetings.cs" />
+    <Compile Include="DbParkon\Mirror\Meeting_Content.cs" />
+    <Compile Include="DbParkon\Mirror\Meeting_JoinUser.cs" />
+    <Compile Include="DbParkon\Mirror\Meeting_Status.cs" />
+    <Compile Include="DbParkon\Mirror\Meeting_Type.cs" />
+    <Compile Include="DbParkon\Mirror\Offers.cs" />
+    <Compile Include="DbParkon\Mirror\Offer_Details.cs" />
+    <Compile Include="DbParkon\Mirror\Offer_RequestSource.cs" />
+    <Compile Include="DbParkon\Mirror\Offer_RequestType.cs" />
+    <Compile Include="DbParkon\Mirror\Offer_Status.cs" />
+    <Compile Include="DbParkon\Mirror\Offer_Type.cs" />
+    <Compile Include="DbParkon\Mirror\Projects.cs" />
+    <Compile Include="DbParkon\Mirror\Project_Detail.cs" />
+    <Compile Include="DbParkon\Mirror\Project_Rev.cs" />
+    <Compile Include="DbParkon\Mirror\SoftwareVersion.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Address.cs" />
+    <Compile Include="DbParkon\Mirror\Store_AddressCol.cs" />
+    <Compile Include="DbParkon\Mirror\Store_AddressPos.cs" />
+    <Compile Include="DbParkon\Mirror\Store_AddressRow.cs" />
+    <Compile Include="DbParkon\Mirror\Store_AddressZone.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Brand.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Location.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Logs.cs" />
+    <Compile Include="DbParkon\Mirror\Store_OutAction.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Product.cs" />
+    <Compile Include="DbParkon\Mirror\Store_ProductBlock.cs" />
+    <Compile Include="DbParkon\Mirror\Store_ProductGroup.cs" />
+    <Compile Include="DbParkon\Mirror\Store_ProductType.cs" />
+    <Compile Include="DbParkon\Mirror\Store_ProductUnit.cs" />
+    <Compile Include="DbParkon\Mirror\Store_Warehouse.cs" />
+    <Compile Include="DbParkon\Mirror\Store_WarehouseOut.cs" />
+    <Compile Include="DbParkon\Mirror\Suppliers.cs" />
+    <Compile Include="DbParkon\Mirror\Supplier_Contact.cs" />
+    <Compile Include="DbParkon\Mirror\Supplier_Section.cs" />
+    <Compile Include="DbParkon\Mirror\Supplier_Type.cs" />
+    <Compile Include="DbParkon\Mirror\Tasks.cs" />
+    <Compile Include="DbParkon\Mirror\Task_Priority.cs" />
+    <Compile Include="DbParkon\Mirror\Task_Status.cs" />
+    <Compile Include="DbParkon\Mirror\Task_SubjectPrefix.cs" />
+    <Compile Include="DbParkon\Mirror\Task_Type.cs" />
+    <Compile Include="DbParkon\Mirror\Title.cs" />
+    <Compile Include="DbParkon\Mirror\Users.cs" />
+    <Compile Include="DbParkon\Mirror\User_Access.cs" />
+    <Compile Include="DbParkon\Mirror\User_Authorization.cs" />
+    <Compile Include="DbParkon\Mirror\User_Department.cs" />
+    <Compile Include="DbParkon\Mirror\User_Level.cs" />
+    <Compile Include="DbParkon\Mirror\User_Logs.cs" />
+    <Compile Include="DbParkon\Mirror\User_Online.cs" />
+    <Compile Include="DbParkon\Mirror\User_Screen.cs" />
+    <Compile Include="DbParkon\Mirror\Zone.cs" />
+    <Compile Include="DbSettings\Entities\Logs2.cs" />
+    <Compile Include="DbSettings\Entities\Logs.cs" />
+    <Compile Include="DbSettings\Entities\Prg.cs" />
+    <Compile Include="DbSettings\Entities\UserData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DbParkon\Dto\" />
+    <Folder Include="DbSettings\Entities\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,27 @@
+﻿
+2.0.0.2000
+- V2 İlk sürüm yayımlandı.
+- Web Api üzerinden çalışma platformu geliştirildi.
+- Windows App arayüzü yenilendi.
+- Yeni proje ve revizyon kodu oluşturma algoritması eklendi.
+
+2.0.0.2001
+- Teklifler bölümü düzenlendi.
+- Teklif numarası ve teklif hazırlama bilgileri bilgileri paneli eklendi.
+- Tekliflerin durumları ve listelenmesi için ilgili paneller eklendi.
+
+2.0.0.2002
+- Teklifler bölümünde iyileştirmeler yapıldı.
+- Görevler bölümü için ana ekrana kısayol butonu eklendi.
+- Oluşturulan görevler için bilgilendirme maili gönderim sistemi eklendi.
+
+2.0.0.2003
+- Proje Oluşturma bölümündeki hatalar giderildi.
+
+2.0.0.2004
+- Teklif oluşturma bölümündeki hatalar giderildi.
+
+2.0.0.2005
+- Proje sorgulama bölümünde proje kodu göstergesi eklendi.
+- Proje sorgulama bölümümndeki proje listesi yeniden düzenlendi.
+- Proje oluşturma bölümündeki proje kodu hatası giderildi.

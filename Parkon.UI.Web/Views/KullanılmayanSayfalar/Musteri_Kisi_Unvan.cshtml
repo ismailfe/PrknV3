@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Musteri_Kisi_Unvan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <!--Üst Kısım Veri Griş Bölümü-->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- Form Element sizes -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <!-- form start -->
+                        <form>
+                            <div class="card-body">
+
+                                <!-- Teklif Adı -->
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teklif Tür Adını Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teklif Kod Giriniz">
+                                </div>
+                                <div class="form-group">
+                                    @*<label for="exampleInputEmail1">Email address</label>*@
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Açıklama Giriniz">
+                                </div>
+                                <br />
+                                <div class="col-12">
+
+                                    <input type="submit" value="Kaydet" class="btn btn-success float-left">
+                                </div>
+                                <br />
+
+                            </div>
+                            <!-- /.card-body -->
+
+                        </form>
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!--/.col (right) -->
+
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Quick Example</h3>*@
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <div class="card-body">
+                            <!-- /.card-header -->
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Kodu</th>
+                                        <th>Adı</th>
+                                        <th>Açıklama</th>
+                                        <th class="text-right py-0 align-middle">Değiştir / Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>MUH</td>
+                                        <td>Mühendis</td>
+                                        <td>-</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td>MDR</td>
+                                        <td>Müdür</td>
+                                        <td>-</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td>TKS</td>
+                                        <td>Teknisyen</td>
+                                        <td>-</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td>MHM</td>
+                                        <td>Muhasebe Müdürü</td>
+                                        <td>-</td>
+                                        <td class="text-right py-0 align-middle">
+                                            <div class="btn-group btn-group-sm">
+                                                <a href="#" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                        </td>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /.content -->
+
+
+
+

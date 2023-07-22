@@ -1,0 +1,81 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.ParametersEdit
+@using Prkn.Common.Enums;
+
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- Form Element sizes -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        @*<h3 class="card-title">Different Height</h3>*@
+                    </div>
+                    <!-- form start -->
+
+                    <div class="card-body">
+
+                        @using (Html.BeginForm(Model.FromRoute, Model.FromController, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                        {
+                            // CODE
+                            <div class="form-group row">
+                                <label for="Kod" class="col-sm-2 col-form-label">KOD:</label>
+                                @*@Html.LabelFor(m => m.Code, new { @class = "col-sm-4 control-label", @for = "in_No" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Prm.Code, new { @class = "form-control", @type = "text", @placeholder = Model.Prm.Code, @id = "in_Code" })
+                                    @Html.ValidationMessageFor(m => m.Prm.Code)
+                                </div>
+                            </div>
+                            // ADI
+                            <div class="form-group row">
+                                <label for="Name" class="col-sm-2 col-form-label">NAME:</label>
+                                @*@Html.LabelFor(m => m.Name, new { @class = "col-sm-4 control-label", @for = "in_Name" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Prm.Name, new { @class = "form-control", @type = "text", @placeholder = Model.Prm.Name, @id = "in_Name", @required = "" })
+                                    @Html.ValidationMessageFor(m => m.Prm.Name)
+                                </div>
+                            </div>
+
+                            // Açıklama
+                            <div class="form-group row">
+                                <label for="KOD" class="col-sm-2 col-form-label">COMMENT:</label>
+                                @*@Html.LabelFor(m => m.Comment, new { @class = "col-sm-4 control-label", @for = "in_Comment" })*@
+                                <div class="col-sm-7">
+                                    @Html.TextBoxFor(m => m.Prm.Comment, new { @class = "form-control", @type = "text", @placeholder = Model.Prm.Comment, @id = "in_Comment" })
+                                    @Html.ValidationMessageFor(m => m.Prm.Comment)
+                                </div>
+                            </div>
+
+                            @Html.HiddenFor(model => model.Prm.Id);
+                            @Html.HiddenFor(model => model.IslemTuru);
+                            @Html.HiddenFor(model => model.HeaderTitle);
+                            @Html.HiddenFor(model => model.FromRoute);
+                            @Html.HiddenFor(model => model.FromController);
+                    <div class="col-12" style="float:left">
+                        @if (Model.IslemTuru == IslemTuru.Insert)
+                        {
+                            <button type="submit" class="btn btn-success">Oluştur </button>
+                        }
+                        @if (Model.IslemTuru == IslemTuru.Update)
+                        {
+                            <button type="submit" class="btn btn-info">Güncelle </button>
+                        }
+                        @if (Model.IslemTuru == IslemTuru.Delete)
+                        {
+                            <button type="submit" class="btn btn-danger">Sil </button>
+                        }
+                        
+                        <button type="reset" class="btn btn-warning">Temizle</button>
+                        <a class="btn btn-block col-2 float-right" onclick='javascript: history.go(-1)' style="background-color:lightgray; margin-top: 3px;">GERİ </a>
+                    </div>
+                            <label>@Model.JobStatus</label>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

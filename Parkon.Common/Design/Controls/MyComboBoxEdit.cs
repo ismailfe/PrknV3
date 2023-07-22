@@ -1,0 +1,25 @@
+﻿
+
+using DevExpress.XtraEditors;
+using System.Drawing;
+using DevExpress.XtraEditors.Controls;
+using Prkn.Common.Design.Interfaces;
+using System.ComponentModel;
+
+namespace Prkn.Common.Design.Controls
+{
+   public class MyComboBoxEdit : ComboBoxEdit, IStatusBarShortcut
+    {
+        [ToolboxItem(true)]
+        public MyComboBoxEdit()
+        {
+            Properties.AppearanceFocused.BackColor = Color.LightCyan;
+            Properties.TextEditStyle = TextEditStyles.DisableTextEditor;
+        }
+
+        public override bool EnterMoveNextControl { get; set; } = true;
+        public string StatusBarShortcut { get; set; } = "F4 :";
+        public string StatusBarShortcutComment { get; set; }
+        public string StatusBarComment { get; set; }
+    }
+}

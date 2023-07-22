@@ -1,0 +1,79 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.CustomerSectionList
+@using Prkn.Common.Enums;
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><a id="Yeni Ekle" class="btn-lg btn-success" href="@Url.Action("MusteriBolumuEdit/"+IslemTuru.Insert+"/"+0,"Musteri")"> Yeni Ekle</a></h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>KOD</th>
+                    <th>Müşteri Adı</th>
+                    <th>Bölüm Adı</th>
+                    <th>Detaylı Bilgi</th>
+                    <th>Anahtar Kelime</th>
+                    <th>Telefon-1</th>
+                    <th>Telefon-2</th>
+                    <th>Fax</th>
+                    <th>Adres</th>
+                    <th>Bölge Adı</th>
+                    <th>Güncelle</th>
+                    <th>SİL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{string zone = "-";}
+
+                @for (int i = 0; i < Model.Prm.Count; i++)
+                {
+                <tr>
+                    <td>
+                        @if (Model.Prm[i].Pic == null || Model.Prm[i].Pic == "")
+                        {
+                            Model.Prm[i].Pic = "~/Content/dist/img/Customer_Image/Logo_Yok.png";
+                        }
+                        <img src="@Url.Content(Model.Prm[i].Pic)" width="40" height="40" class="img-circle elevation-2" alt="Customer Image">
+                    </td>
+                    <td>@Model.Prm[i].Code</td>
+                    <td>@Model.Customer[i].Name</td>
+                    <td>@Model.Prm[i].Name</td>
+                    <td>@Model.Prm[i].Info</td>
+                    <td align="center">@Model.Prm[i].Keyword</td>
+                    <td>@Model.Prm[i].Phone1</td>
+                    <td>@Model.Prm[i].Phone2</td>
+                    <td>@Model.Prm[i].Fax</td>
+                    <td>@Model.Prm[i].Address</td>
+
+                    <td>
+                        @if (Model.ZoneList.Count > 0 && Model.ZoneList.Count > i)
+                        {
+                            if (Model.ZoneList[i].Name == null)
+                            {
+                                zone = "-";
+                            }
+                            else
+                            {
+                                zone = Model.ZoneList[i].Name;
+                            }
+                        }
+                        @zone
+                    </td>
+                    <td><a href="@Url.Action(Model.FromRoute+"/"+IslemTuru.Update+"/"+Model.Prm[i].Id, Model.FromController)" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    <td><a href="@Url.Action(Model.FromRoute+"/"+IslemTuru.Delete+"/"+Model.Prm[i].Id, Model.FromController)" type="button" class="btn btn-block btn-danger"><i class="fas fa-trash"></i> </a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- /. İçerikler Buraya-->

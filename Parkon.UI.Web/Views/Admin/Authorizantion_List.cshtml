@@ -1,0 +1,135 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.Authorization_List
+
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><a id="Yeni Ekle" class="btn-lg btn-success" href="@Url.Action("YetkilendirmeEdit", "Admin")"> Yeni Ekle</a></h3>
+        <center class="text-bold"><h3>Grup Yetki Listesi</h3></center>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example2" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Grup Adı</th>
+                    <th>Yetki Sayısı</th>
+                    <th>Yetkiler</th>
+                    <th>Açıklama</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.PrmGroup.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model.PrmGroup[i].Name</td>
+                        <td>@Model.PrmGroup[i].Authorizations.Count</td>
+                        <td>
+                            <h5>
+                                @for (int k = 0; k < Model.PrmGroup[i].Authorizations.Count; k++)
+                                {
+
+                                    <span class="badge badge-pill badge-@(Model.PrmGroup[i].Authorizations[k].Code == "Y1" ? "info" : "")@(Model.PrmGroup[i].Authorizations[k].Code == "Y2" ? "warning" : "")@(Model.PrmGroup[i].Authorizations[k].Code == "Y3" ? "danger" : "")">
+                                        @Model.PrmGroup[i].Authorizations[k].Name
+                                    </span>
+
+                                }
+                            </h5>
+                            </td>
+                        <td>@Model.PrmGroup[i].Comment</td>
+
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                        <td><a href="#" type="button" class="btn btn-block btn-danger"><i class="fas fa-trash"></i> </a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- /. İçerikler Buraya-->
+<hr />
+<br />
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><a id="Yeni Ekle" class="btn-lg btn-success" href="@Url.Action("YetkilendirmeEdit", "Admin")"> Yeni Ekle</a></h3>
+        <center class="text-bold"><h3>Kullanıcı Yetki Listesi</h3></center>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example2" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Grup Adı</th>
+                    <th>Yetki Sayısı</th>
+                    <th>Yetkiler</th>
+                    <th>Açıklama</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{string classvalue = ""; }
+       
+                @for (int i = 0; i < Model.PrmUsers.Count; i++)
+                {
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@Model.PrmUsers[i].Name</td>
+                        <td>@Model.PrmUsers[i].Authorizations.Count</td>
+                        <td>
+                            <h5>
+                                @for (int k = 0; k < Model.PrmUsers[i].Authorizations.Count; k++)
+                                {
+                                    
+                                        switch (Model.PrmUsers[i].Authorizations[k].Code)
+                                        {
+
+                                            case "Y1":
+                                                classvalue = "info";
+                                                break;
+
+                                            case "Y2":
+                                                classvalue = "warning";
+                                                break;
+                                            case "Y3":
+                                                classvalue = "danger";
+                                                break;
+                                        }
+                                    
+                                    <span class="badge badge-pill badge-@classvalue">
+                                        @Model.PrmUsers[i].Authorizations[k].Name
+                                    </span>
+
+                                }
+                            </h5>
+                        </td>
+                        <td>@Model.PrmUsers[i].Comment</td>
+
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                        <td><a href="#" type="button" class="btn btn-block btn-danger"><i class="fas fa-trash"></i> </a></td>
+                    </tr>
+                }
+
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->

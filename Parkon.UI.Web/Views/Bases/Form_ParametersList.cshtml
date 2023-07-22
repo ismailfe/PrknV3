@@ -1,0 +1,56 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.ParametersList
+@using Prkn.Common.Enums;
+
+
+<!--Modal-->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        @*<h3 class="card-title">Different Height</h3>*@
+                    </div>
+                    <!-- form start -->
+                    <div class="card-body">
+                        <a id="Yeni Ekle" class="btn-lg btn-success" href="~/@Model.FromController/@Model.FromRoute/@IslemTuru.Insert/0"> Yeni Ekle</a>
+                        <br />
+                        <br />
+                        <table id="example2" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Kodu</th>
+                                    <th>Adı</th>
+                                    <th>Açıklama</th>
+                                    <th class="px-0"><center>Değiştir</center></th>
+                                    <th class="px-0"><center>Sil</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @for (int i = 0; i < Model.Prm.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Model.Prm[i].Id</td>
+                                        <td>@Model.Prm[i].Code</td>
+                                        <td>@Model.Prm[i].Name</td>
+                                        <td>@Model.Prm[i].Comment</td>
+                                        <td>
+                                            <!--<a id="Guncelle" class="btn-xs btn-warning" href="~/@Model.FromController/@Model.FromRoute/@Model.Prm[i].Id"> Güncelle</a> --> <!--"~/Teklifler/TeklifTurleri/11"-->
+                                            <!--  <a href="~/Views/Shared/_ModalEdit.cshtml/@Model.Prm[i].Id" class="btn btn-info" data-toggle="modal" data-target="#modal-edit"><i class="fas fa-pencil-alt"></i></a>-->
+                                            <center><a href="~/@Model.FromController/@Model.FromRoute/@IslemTuru.Update/@Model.Prm[i].Id" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a></center>
+
+                                        </td>
+                                        <td><center><a href="~/@Model.FromController/@Model.FromRoute/@IslemTuru.Delete/@Model.Prm[i].Id" class="btn btn-danger"><i class="fas fa-trash"></i></a></center></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

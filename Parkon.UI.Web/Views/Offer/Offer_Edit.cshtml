@@ -1,0 +1,613 @@
+﻿
+@model Prkn.UI.Web.Models.ViewModels.OfferEdit
+@using Prkn.Common.Enums;
+
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("_ModalEdit")
+@if (Model.ModalStatus == "insert" || Model.ModalStatus == "update" || Model.ModalStatus == "delete")
+{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modal-edit").modal("show");
+        });
+    </script>
+}
+
+<!--Üst Kısım Veri Griş Bölümü-->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+
+        @using (Html.BeginForm(Model.FromRoute, Model.FromController, FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <!--Tek Kart-->
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- left column -->
+                                <div class="col-md-6">
+                                    <!-- general form elements -->
+
+                                    <div class="card-body">
+
+                                        <!-- Hazırlama Modu -->
+                                        <!--<div class="form-group">
+                                            Html.DropDownListFor(m => m.PreparingTypeId, new SelectList(Model.PreparingType, "Id", "Name"), new { class = "dropdown form-control", id = "PreparingTypeSelect" })
+                                        </div>-->
+                                        <!-- Müşteri Seçimi -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("MusteriRehberi", "Musteri")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+                                            @Html.DropDownListFor(m => m.Prm.CustomerId, new SelectList(Model.Customer, "Id", "Name"), "-Müşteri Seçiniz-", new { @class = "dropdown form-control", @id = "CustomerSelect", @required = "" })
+                                        </div>
+                                        <!-- /input-group -->
+                                        <!-- Fabrika Seçimi -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("MusteriBolumu", "Musteri")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+                                            @Html.DropDownListFor(m => m.Prm.CustomerSectionId, new SelectList(Model.CustomerSection, "Id", "Name"), "-Bölüm/Fabrika Seçiniz-", new { @class = "dropdown form-control", @id = "CustomerSectionSelect", @required = "" })
+                                        </div>
+                                        <!-- /input-group -->
+                                        <!-- Talep Eden Kişi -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("MusteriKisi", "Musteri")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+
+                                            @Html.DropDownListFor(m => m.Prm.CustomerContactId, new SelectList(Model.CustomerContact, "Id", "Name"), "-Talep Eden Kişiyi Seçiniz-", new { @class = "dropdown form-control", @id = "CustomerContactSelect", @required = "" })
+
+                                        </div>
+                                        <!-- /input-group -->
+                                        <!-- Talep Kaynağı -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("TeklifTalepKaynaklari", "Teklif")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+
+                                            @Html.DropDownListFor(m => m.Prm.OfferRequestSourceId, new SelectList(Model.OfferRequestSource, "Id", "Name"), "-Teklif Talep Kaynağını Seçiniz-", new { @class = "dropdown form-control", @id = "OfferRequestSourceSelect", @required = "" })
+
+                                        </div>
+                                        <!-- /input-group -->
+                                        <!-- Talep Türü -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("TeklifTalepTurleri", "Teklif")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+
+                                            @Html.DropDownListFor(m => m.Prm.OfferRequestTypeId, new SelectList(Model.OfferRequestType, "Id", "Name"), "-Teklif Talep Türünü Seçiniz-", new { @class = "dropdown form-control", @id = "OfferRequestTypeSelect", @required = "" })
+                                        </div>
+                                        <!-- Teklif Tarihi -->
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-4 col-form-label">Teklif Tarihi :</label>
+                                            <div class="input-group date col-sm-8" id="reservationdate" data-target-input="nearest">
+                                                @* @Html.TextBoxFor(m => m.Prm.ExchangeRateDate, new { @type = "text", @class = "form-control input-group", @id = "txt_exchangeratedate", @data_inputmask_alias = "datetime", @data_inputmask_inputformat = "dd/mm/yyyy", @data_mask = "" })*@
+                                                @Html.TextBoxFor(m => m.Prm.PreparationDate, new { @class = "form-control", @type = "text", @data_target = "#reservationdate", @data_inputmask_alias = "datetime", @id = "txt_offerPreparationDate", @required = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.PreparationDate)
+                                                <!--<input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />-->
+
+                                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Tarih ,Geçerlilik Süresi -->
+
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-4 col-form-label">Geçerlilik Süresi (Hafta):</label>
+                                            <div class="col-sm-8">
+                                                @Html.TextBoxFor(m => m.Prm.ValidityPeriodWeek, new { @type = "number", @class = "form-control", @min = "0", @max = "10", @id = "offerValidityPeriodWeek", @required = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.ValidityPeriodWeek)
+                                                <!--<input type="number" class="form-control" value="2" />-->
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <!--Referans No-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group input-group-append">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Referans No:&ensp;</span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.RefNo, new { @type = "text", @class = "form-control", @placeholder = "Referans No...", @disabled = "", @id = "offerRefNo" })
+                                                @Html.ValidationMessageFor(m => m.Prm.RefNo)
+                                                <!--<input type="text" class="form-control" placeholder="Ref No..." disabled="">-->
+                                                <!--  <span class="input-group-append">
+                                                    <button type="button" class="btn btn-info btn-flat">Yeniden Sorgula</button>
+                                                </span>-->
+
+                                            </div>
+                                        </div>
+
+                                        <!--Teklif Kodu-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group input-group-append">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Teklif Kodu:&ensp;&ensp;</span>
+                                                </div>
+                                                @Html.TextBoxFor(m => m.Prm.Code, new { @type = "text", @class = "form-control", @placeholder = "Teklif Kodu...", @id = "offer_Code", @disabled = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.Code)
+                                                <!--<input type="text" class="form-control" placeholder="Teklif Kodu..." disabled="">-->
+                                                <!--   <span class="input-group-append">
+                                                    <button type="button" class="btn btn-info btn-flat" onclick="copytoclipboard()">Kopyala</button>
+                                                </span>
+                                                 -->
+                                            </div>
+                                        </div>
+
+                                        <!--Versiyon No-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Versiyon:&emsp;&emsp;</span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Prm.VerCode, new { @type = "text", @class = "form-control", @placeholder = "Versiyon...", @disabled = "", @id = "offerVerNo" })
+                                            @Html.ValidationMessageFor(m => m.Prm.VerCode)
+                                            <!--<input type="text" class="form-control" placeholder="Ver..." disabled="">-->
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    @*<div class="card-footer">
+                                            <button type="submit" class="btn btn-primary">Teklif Oluştur</button>
+                                        </div>*@
+
+
+
+                                </div>
+                                <!--/.col (left) -->
+                                <!-- right column -->
+                                <div class="col-md-6">
+                                    <!-- Form Element sizes -->
+
+                                    <div class="card-body">
+
+                                        <!-- Teklif Adı -->
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            @Html.TextBoxFor(m => m.Prm.Name, new { @class = "form-control", @type = "text", @placeholder = "Teklif Adını Giriniz", @id = "txt_offerName", @required = "" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Name)
+                                            <!--<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teklif Adını Giriniz">-->
+                                        </div>
+
+                                        <!-- Açıklama Bölümü -->
+                                        <div class="form-group">
+                                            @*<label>Textarea</label>*@
+                                            @Html.TextAreaFor(m => m.Prm.Comment, new { @class = "form-control", @rows = "4", @placeholder = "Açıklama Giriniz...", @id = "txt_offerComment" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Comment)
+                                            <!--<textarea class="form-control" rows="4" placeholder="Açıklama ..."></textarea>-->
+                                        </div>
+
+                                        <!-- Teklif Türü -->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <a href="@Url.Action("TeklifTurleri", "Teklif")" type="button" class="btn btn-info">Ekle</a>
+                                            </div>
+                                            <!-- /btn-group -->
+                                            @Html.DropDownListFor(m => m.Prm.OfferTypeId, new SelectList(Model.OfferType, "Id", "Name"), "-Teklif Türünü Seçiniz-", new { @class = "dropdown form-control", @id = "OfferTypeSelect", @required = "" })
+
+                                        </div>
+                                        <!-- Teklif Durumu -->
+                                        <div class="form-group">
+                                            @*<label>Select</label>*@
+
+                                            @Html.DropDownListFor(m => m.Prm.OfferStatusId, new SelectList(Model.OfferStatus, "Id", "Name"), "-Teklif Durumunu Seçiniz-", new { @class = "dropdown form-control", @id = "OfferStatusSelect", @required = "" })
+
+                                        </div>
+                                        <!-- /input-group -->
+                                        <!--Kur Çekme Bölümü Fiyatı-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+
+                                                @Html.DropDownListFor(m => m.Prm.CurrencyId, new SelectList(Model.Currency, "Id", "Code"), new { @class = "input-group-text text-bold bg-gradient-info", @id = "currencySelect" })
+
+                                            </div>
+                                            <!--Kur tarihi burayada o değer gelecek-->
+                                            @Html.TextBoxFor(m => m.Prm.ExchangeRateDate, new { @type = "text", @class = "form-control input-group", @id = "txt_exchangeratedate", @data_inputmask_alias = "datetime", @data_inputmask_inputformat = "dd/mm/yyyy", @data_mask = "" })
+                                            @Html.ValidationMessageFor(m => m.Prm.ExchangeRateDate)
+
+                                            <!--<input type="text" class="form-control" placeholder="Teklif Fiyatı">-->
+
+                                            <div class="input-group-prepend">
+                                                <!--Kur Değeri Buraya gelecek-->
+                                                @Html.TextBoxFor(m => m.Prm.ExchangeRate, new { @type = "text", @class = "input-group text-bold", @placeholder = "Kur Değeri", @id = "txt_exchangerate", @disabled = "" })
+                                                @Html.ValidationMessageFor(m => m.Prm.ExchangeRate)
+                                                <!--<input type="text" class="input-group text-bold" placeholder="Kur Değeri" value="" id="kurdegeri">-->
+
+                                            </div>
+
+                                            <span class="input-group-append">
+                                                <button type="button" class="btn btn-info btn-flat" id="btn_kurcek">Kur Çek</button>
+                                            </span>
+                                        </div>
+
+                                        <!-- /input-group -->
+                                        <!--Teklif Fiyatı-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+
+                                                <!--<button type="button" class="btn btn-default btn-flat" disabled="">Teklif Fiyatı:</button>-->
+                                                <span class="input-group-text">Teklif Fiyatı:&emsp;&emsp;&emsp;&nbsp;&nbsp;</span>
+
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Prm.Price, new { @type = "text", @class = "form-control input-group", @style = "text-align:right;", @placeholder = "....", @id = "txt_offerPrice" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Price)
+                                            <!--<input type="text" class="form-control" placeholder="Hesaplanan Maliyet">-->
+
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-try" id="price_sembol"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <!-- /input-group -->
+                                        <!--Hesaplanan Maliyet-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+
+                                                <span class="input-group-text">Hesaplanan Maliyet:</span>
+
+
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Prm.TargetCost, new { @type = "text", @class = "form-control", @style = "text-align:right;", @placeholder = ".....", @id = "txt_offerTargetCost" })
+                                            @Html.ValidationMessageFor(m => m.Prm.TargetCost)
+                                            <!--<input type="text" class="form-control" placeholder="Hesaplanan Maliyet">-->
+
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-try" id="targetcost_sembol"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <!-- /input-group -->
+                                        <!--Gerçek Maliyet-->
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+
+                                                <span class="input-group-text">Gerçek Maliyet:&emsp;&emsp;&nbsp;</span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Prm.RealCost, new { @type = "text", @class = "form-control", @style = "text-align:right;", @placeholder = "....", @id = "txt_offerRealCost" })
+                                            @Html.ValidationMessageFor(m => m.Prm.RealCost)
+                                            <!--<input type="text" class="form-control" placeholder="Gerçek Maliyet">-->
+
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-try" id="realcost_sembol"></i></span>
+
+                                            </div>
+                                        </div>
+
+
+                                        <!-- /input-group -->
+                                        <!-- Anahtar Kelime -->
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            @Html.TextBoxFor(m => m.Prm.Keyword, new { @type = "text", @class = "form-control", @placeholder = "Anahtar Kelime Giriniz", @id = "txt_offerKeyword" })
+                                            @Html.ValidationMessageFor(m => m.Prm.Keyword)
+                                            <!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Anahtar Kelime Giriniz">-->
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+
+
+                                </div>
+
+                                <!--/.col (right) -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--/. Tek Kart-->
+            </div>
+            @Html.HiddenFor(model => model.Prm.Id);
+            @Html.HiddenFor(model => model.IslemTuru);
+            @Html.HiddenFor(model => model.HeaderTitle);
+            @Html.HiddenFor(model => model.FromRoute);
+            @Html.HiddenFor(model => model.FromController);
+            @*
+                @Html.HiddenFor(model => model.Customer);
+                @Html.HiddenFor(model => model.CustomerContact);
+                @Html.HiddenFor(model => model.CustomerSection);
+                @Html.HiddenFor(model => model.OfferRequestSource);
+                @Html.HiddenFor(model => model.OfferRequestType);
+                @Html.HiddenFor(m => m.OfferStatus);
+                @Html.HiddenFor(model => model.OfferType);
+            *@
+            @Html.HiddenFor(model => model.PreparingTypeId);
+            @Html.HiddenFor(model => model.PreparingType);
+            @Html.HiddenFor(model => model.Prm.RefNo);
+            @Html.HiddenFor(model => model.Prm.Code);
+            @Html.HiddenFor(model => model.Prm.VerCode);
+            @Html.HiddenFor(model => model.Versiyon);
+            @Html.HiddenFor(model => model.disabled);
+            @Html.HiddenFor(model => model.Prm.CreateDate);
+            @Html.HiddenFor(model => model.Prm.PreparationDate);
+            @Html.HiddenFor(model => model.Prm.OfferRequestTypeId);
+            <div class="card-footer">
+                <div class="col-lg-6">
+                    <div class="btn-group w-100 btn-lg">
+                        @if (Model.IslemTuru == IslemTuru.Insert && Model.Versiyon == 0)
+                        {
+                            <button type="submit" class="btn btn-success col fileinput-button" value="Teklif Oluştur">
+                                <i class="fas fa-plus"></i>
+                                <span>Teklif Oluştur</span>
+                            </button>
+                        }
+                        else if (Model.Versiyon == 1)
+                        {
+                            <button type="submit" class="btn btn-warning col fileinput-button" value="Versiyon Oluştur">
+                                <i class="fas fa-plus"></i>
+                                <span>Versiyon Oluştur</span>
+                            </button>
+                            @Html.HiddenFor(model => model.IslemTuru);
+                        }
+                        else if (Model.IslemTuru == IslemTuru.Update)
+                        {
+                            <button type="submit" class="btn btn-warning col cancel" value="Güncelle" id="btn_update">
+                                <i class="fas fa-sync"></i>
+                                <span>Güncelle</span>
+                            </button>
+                            <!--
+        <button type="button" class="btn btn-primary col start" id="btn_saveas">
+            <i class="fas fa-clone"></i>
+            <span>Farklı Kaydet</span>
+        </button>
+            -->
+                        }
+                        else if (Model.IslemTuru == IslemTuru.Delete)
+                        {
+                            <button type="submit" class="btn btn-danger col fileinput-button" value="SİL" id="btn_delete">
+                                <i class="fas fa-trash"></i>
+                                <span>Teklifi SİL</span>
+                            </button>
+                        }
+                        <!--<button type="button" class="btn btn-warning col cancel">
+        <i class="fas fa-sync" aria-hidden="true"></i>
+        <span>Güncelle</span>
+    </button>-->
+                    </div>
+                </div>
+            </div>
+        }
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+<!--/. Üst Kısım-->
+<!-- /. İçerikler Buraya-->
+<script>
+ //Müşteri seçildiğinde Müşteri Bölümlerini dolduruyor
+$("#CustomerSelect").change(function () {
+var Ddl = $(this);
+var getId = Ddl.val();
+
+if (getId != "") {
+    //------
+    $.ajax({
+        method: "GET",
+        url: '@Url.Action("CustomerSectionForDdl", "Teklif")' + '/' + getId,
+        beforeSend: function () {
+            // ajax isteği öncesi şehirler silinir.
+            $("#CustomerSectionSelect option").not(":first").remove();
+        }
+    }).done(function (result) {
+
+        console.log(result);
+
+        // json formatında müşteriye ait bölümler gelir..
+        // her biri için option elementi oluşturulur
+        // şehirler(id=SelectedCityId) dropdownlist e eklenir.
+        for (var i = 0; i < result.length; i++) {
+            //   var getData = result[i];
+            var opt = $("<option></option>");
+
+             opt.val(result[i].Id);
+            opt.text(result[i].Name);
+
+            $("#CustomerSectionSelect").append(opt);
+        }
+    });
+    //-------
+    $.ajax({
+        method: "GET",
+        url: '@Url.Action("CustomerContactForDdl", "Teklif")' + '/' + getId,
+        beforeSend: function () {
+            // ajax isteği öncesi verileri silinir.
+          $("#CustomerContactSelect option").not(":first").remove();
+        }
+    }).done(function (data) {
+
+        console.log(data);
+        // json formatında müşteriye ait kişiler
+        // her biri için option elementi oluşturulur
+        // Kişiler (id=CustomerContacId) dropdownlist e eklenir.
+        //fakat burda long değerinin son 3 hanesi 0 olarak geliyor
+        for (var i = 0; i < data.length; i++) {
+
+            var getData = data[i];
+            var opt = $("<option></option>");
+
+            opt.val(getData.Id);
+            opt.text(getData.Name);
+
+            $("#CustomerContactSelect").append(opt);
+
+            console.log(getData.Id);
+        }
+    });
+    //-------
+}
+else
+{
+    $("#CustomerSectionSelect option").not(":first").remove();
+    $("#CustomerContactSelect option").not(":first").remove();
+}
+});
+</script>
+<!--Teklif Kodunu Kopyalama Fonksiyonu-->
+<script>
+    function copytoclipboard() {
+        /* Get the text field */
+        var copyText = document.getElementById("offer_Code");
+
+        /* Select the text field */
+        copyText.select();
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+        /* Alert the copied text */
+        // alert("Kopyalanan Text: " + copyText.value);
+    }
+</script>
+<!--Kur Çekmek Scripti-->
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        var kurcek = document.getElementById("btn_kurcek");
+        var kurdegeri = document.getElementById("txt_exchangerate");
+
+     //   var kurtarihi = document.getElementById("txt_exchangeratedate");
+
+        kurcek.addEventListener("click", function () {
+
+            var retVal = true;
+            if (kurdegeri.value != "")
+            {
+                retVal = confirm("KUR DEĞERİ DEĞİŞTİRİLSİN Mİ?");
+            }
+            var select = document.getElementById('currencySelect');
+            var parabirimi = select.options[select.selectedIndex].text;
+            var kurtarihi = document.getElementById('txt_exchangeratedate');
+            @{ DateTime datenow2 = DateTime.Now;}
+            //Model.Currency[0].Id;
+            if (parabirimi == "$" && retVal)
+            {
+                kurdegeri.value = "@Model.DolarTL";
+                kurtarihi.value = "@datenow2";
+            }
+
+            else if (parabirimi == "€" && retVal)
+            {
+                kurdegeri.value = "@Model.EuroTL";
+                kurtarihi.value = "@datenow2";
+            }
+        });
+
+        //İçerisi boş yada null ise
+        var teklifsuresi = document.getElementById("offerValidityPeriodWeek");
+        if (teklifsuresi.value == null || teklifsuresi.value == "")
+        {
+            teklifsuresi.value = 2;
+        }
+
+
+
+    });
+</script>
+<!--./ Kur çekme Scripti-->
+<!--Parabirimi seçilince çeşitli İşlemlerinin Scripti-->
+<script type="text/javascript">
+    $(function () {
+        $("#currencySelect").change(function () {
+            kur_button_durum();
+            //   parabirimi_sembol
+            para_sembol_degistir();
+        });
+    });
+    function kur_button_durum() {
+        var select = document.getElementById('currencySelect');
+        var deger = select.options[select.selectedIndex].text;
+
+        var kurcek = document.getElementById("btn_kurcek");
+        var kurdegeri = document.getElementById("txt_exchangerate");
+        var kurtarihi = document.getElementById("txt_exchangeratedate");
+
+        if (deger == "TL") {
+            kurcek.disabled = true;
+            kurdegeri.disabled = true;
+            //kurtarihi.disabled = true;  //nedendir bilemiyorum bunu disabled yapınca submit butonu çalışmıyor
+            kurdegeri.value = "";
+            kurtarihi.value = "";
+
+            //--
+
+        }
+        else {
+            kurdegeri.disabled = false;
+            kurcek.disabled = false;
+            kurtarihi.disabled = false;
+            kurdegeri.value = "";
+            kurtarihi.value = "";
+        }
+    }
+    function para_sembol_degistir() {
+        var select = document.getElementById('currencySelect');
+        var deger = select.options[select.selectedIndex].text;
+
+        if (deger == "TL") {
+            document.getElementById("price_sembol").className = "fa fa-try";
+            document.getElementById("targetcost_sembol").className = "fa fa-try";
+            document.getElementById("realcost_sembol").className = "fa fa-try";
+        }
+        else if (deger == "€") {
+            document.getElementById("price_sembol").className = "fa fa-eur";
+            document.getElementById("targetcost_sembol").className = "fa fa-eur";
+            document.getElementById("realcost_sembol").className = "fa fa-eur";
+        }
+        else if (deger == "$") {
+            document.getElementById("price_sembol").className = "fa fa-usd";
+            document.getElementById("targetcost_sembol").className = "fa fa-usd";
+            document.getElementById("realcost_sembol").className = "fa fa-usd";
+        }
+    }
+
+    $(document).ready(function () {
+        //Sayfa yüklendiğinde
+        kur_button_durum();
+        para_sembol_degistir();
+
+    });
+</script>
+
+
+@section _Scripts
+    {
+    <script>
+        $(document).ready(function () {
+
+
+            //işlem türü update ise ve versiyon oluşturma değilse teklif talep türü disabled olsun
+            if ("@Model.IslemTuru" == "Update" && "@Model.Versiyon" != "1")
+            {
+                var tekliftalepturu = document.getElementById("OfferRequestTypeSelect");
+                tekliftalepturu.disabled = true;
+            }
+            else if ("@Model.IslemTuru" == "Insert" && "@Model.Versiyon" != "1")
+            {
+                //Teklif oluştur olarak açıldığında otomatik olarak Hazırlanıyor Seçili Gelsin ve bugünün tarihi yazsın
+            var durum = document.getElementById('OfferStatusSelect');
+            durum.selectedIndex = 1;
+
+                var tekliftarihi = document.getElementById('txt_offerPreparationDate');
+                @{ DateTime datenow = DateTime.Now;}
+                tekliftarihi.value = "@datenow";
+            }
+
+            //Teklif Adını büyük yazmak için
+            $('#txt_offerName').keyup(function () {
+                this.value = this.value.toUpperCase();
+            });
+        });
+    </script>
+}

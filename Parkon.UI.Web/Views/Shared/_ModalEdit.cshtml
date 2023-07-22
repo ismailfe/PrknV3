@@ -1,0 +1,78 @@
+﻿
+
+<!--Düzenle Modal-->
+<div class="modal fade" id="modal-edit">
+    <div class="modal-dialog">
+        <div class="modal-content bg-info">
+            <div class="modal-header">
+                <h4 class="modal-title">@Model.ModalTitle <i class="fas fa-@(Model.ModalTitle=="GÜNCELLEME"?"edit":"")@(Model.ModalTitle=="KAYIT"?"plus":"")@(Model.ModalTitle=="SİLME"?"trash":"")@(Model.ModalTitle=="VERSİYON OLUŞTURMA"?"plus":"")"></i></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>@Model.ModalMessage</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                @if (Model.ModalStatus != "")
+                {
+                    if ((Model.ModalTitle == "SİLME" || Model.ModalTitle == "GÜNCELLEME" || Model.ModalTitle == "VERSİYON OLUŞTURMA") && (ViewBag.Title == "TEKLİF OLUŞTUR" || ViewBag.Title == "TEKLİF GÜNCELLE" || ViewBag.Title == "TEKLİF SİL"))
+                    {
+                        <a href="#" type="button" class="btn btn-outline-light" data-dismiss="modal"> Tamam </a>
+                        <a href="@Url.Action("TeklifListele", "Teklif")" type="button" class="btn btn-outline-light">Teklif Listesine Dön</a>
+                    }
+                    else if (Model.ModalTitle == "KAYIT" && (ViewBag.Title == "TEKLİF OLUŞTUR" || ViewBag.Title == "TEKLİF GÜNCELLE"))
+                    {
+                        <a href="@Url.Action("TeklifDuzenle/Insert/0", "Teklif")" type="button" class="btn btn-outline-light"> Yeni Teklif Oluştur </a>
+                        <a href="@Url.Action("TeklifListele", "Teklif")" type="button" class="btn btn-outline-light">Teklif Listesine Dön</a>
+                    }
+                    else if (Model.ModalTitle == "KAYIT" && ViewBag.Title == "MÜŞTERİ OLUŞTUR")
+                    {
+                        <a href="@Url.Action("MusteriRehberiEdit/Insert/0", "Musteri")" type="button" class="btn btn-outline-light"> Yeni Müşteri Oluştur </a>
+                        <a href="@Url.Action("MusteriRehberi", "Musteri")" type="button" class="btn btn-outline-light">Müşteri Şirket Rehberine Dön</a>
+                    }
+                    else if ((Model.ModalTitle == "SİLME" || Model.ModalTitle == "GÜNCELLEME") && ViewBag.Title == "MÜŞTERİ OLUŞTUR")
+                    {
+                        <a href="#" type="button" class="btn btn-outline-light" data-dismiss="modal"> Tamam </a>
+                        <a href="@Url.Action("MusteriRehberi", "Musteri")" type="button" class="btn btn-outline-light">Müşteri Şirket Rehberine Dön</a>
+                    }
+                    else if (Model.ModalTitle == "KAYIT" && ViewBag.Title == "MÜŞTERİ KİŞİ OLUŞTUR")
+                    {
+                        <a href="@Url.Action(Model.FromRoute + "/Insert/0", Model.FromController)" type="button" class="btn btn-outline-light"> Yeni Kişi Oluştur </a>
+                        <a href="@Url.Action("MusteriKisi", Model.FromController)" type="button" class="btn btn-outline-light">Kişi Listesine Dön</a>
+                    }
+                    else if ((Model.ModalTitle == "SİLME" || Model.ModalTitle == "GÜNCELLEME") && ViewBag.Title == "MÜŞTERİ KİŞİ OLUŞTUR")
+                    {
+                        <a href="#" type="button" class="btn btn-outline-light" data-dismiss="modal"> Tamam </a>
+                        <a href="@Url.Action("MusteriKisi", Model.FromController)" type="button" class="btn btn-outline-light">Kişi Listesine Dön</a>
+                    }
+                    else if (Model.ModalTitle == "KAYIT" && ViewBag.Title == "MÜŞTERİ BÖLÜM OLUŞTUR")
+                    {
+                        <a href="@Url.Action(Model.FromRoute + "/Insert/0", Model.FromController)" type="button" class="btn btn-outline-light"> Yeni Bölüm Oluştur </a>
+                        <a href="@Url.Action("MusteriBolumu", Model.FromController)" type="button" class="btn btn-outline-light">Bölüm Listesine Dön</a>
+                    }
+                    else if ((Model.ModalTitle == "SİLME" || Model.ModalTitle == "GÜNCELLEME") && ViewBag.Title == "MÜŞTERİ BÖLÜM OLUŞTUR")
+                    {
+                        <a href="#" type="button" class="btn btn-outline-light" data-dismiss="modal"> Tamam </a>
+                        <a href="@Url.Action("MusteriBolumu", Model.FromController)" type="button" class="btn btn-outline-light">Bölüm Listesine Dön</a>
+                    }
+                    else if (Model.ModalTitle == "KAYIT" && ViewBag.Title == "KULLANICI OLUŞTUR")
+                    {
+                        <a href="@Url.Action(Model.FromRoute + "/Insert/0", Model.FromController)" type="button" class="btn btn-outline-light"> Yeni Kullanıcı Oluştur </a>
+                        <a href="@Url.Action("Kullanici", Model.FromController)" type="button" class="btn btn-outline-light">Kullanıcı Listesine Dön</a>
+                    }
+                    else if ((Model.ModalTitle == "SİLME" || Model.ModalTitle == "GÜNCELLEME") && ViewBag.Title == "KULLANICI OLUŞTUR")
+                    {
+                        <a href="#" type="button" class="btn btn-outline-light" data-dismiss="modal"> Tamam </a>
+                        <a href="@Url.Action("Kullanici", Model.FromController)" type="button" class="btn btn-outline-light">Kullanıcı Listesine Dön</a>
+                    }
+                }
+                <!--<a href="#" type="button" class="btn btn-outline-light"> Evet </a>-->
+                <!--<button type="button" class="btn btn-outline-light" data-dismiss="modal">Hayır</button>-->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

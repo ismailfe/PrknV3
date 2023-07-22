@@ -1,0 +1,72 @@
+﻿@model Prkn.UI.Web.Models.ViewModels.UserList
+@using Prkn.Common.Enums;
+@{
+    ViewBag.Title = Model.HeaderTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><a id="Yeni Ekle" class="btn-lg btn-success" href="@Url.Action("KullaniciEdit/Insert/0","Admin")"> Yeni Ekle</a></h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Doğum Tarihi</th>
+                    <th>İsim</th>
+                    <th>Soyisim</th>
+                    <th>Departman</th>
+                    <th>Ünvan</th>
+                    <th>Rolü</th>
+                    <th>Telefon-1</th>
+                    <th>Telefon-2</th>
+                    <th>Mail-1</th>
+                    <th>Mail-2</th>
+                    <!--   <th>Kullanıcı Adı</th> -->
+                    <!--   <th>Şifre</th> -->
+                    <!--  <th>Açıklama</th>  -->
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Prm.Count; i++)
+                {
+
+                <tr>
+                    <td>
+                        @if (Model.Prm[i].Pic == null)
+                        {
+                            Model.Prm[i].Pic = "~/Content/dist/img/avatar5.png";
+                        }
+                        <img src="@Url.Content(Model.Prm[i].Pic)" width="40" height="40" class="img-circle elevation-2" alt="User Image">
+                    </td>
+                    <td>@Model.Prm[i].BirthDate.Value.ToString("d")</td>
+                    <td>@Model.Prm[i].NameFirst</td>
+                    <td>@Model.Prm[i].NameLast</td>
+                    <td>@Model.Department[i].Name</td>
+                    <td align="center">@Model.Title[i].Name</td>
+                    <td>@Model.Prm[i].Role</td>
+                    <td>@Model.Prm[i].Phone1</td>
+                    <td>@Model.Prm[i].Phone2</td>
+                    <td>@Model.Prm[i].Mail1</td>
+                    <td>@Model.Prm[i].Mail2</td>
+                    <!--   <td>@Model.Prm[i].UserName</td> -->
+                    <!--  <td>@Model.Prm[i].Pass</td> -->
+                    <!--   <td>@Model.Prm[i].Comment</td> -->
+                    <td><a href="@Url.Action(Model.FromRoute+"/"+IslemTuru.Update+"/"+Model.Prm[i].Id, Model.FromController)" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    <td><a href="@Url.Action(Model.FromRoute+"/"+IslemTuru.Delete+"/"+Model.Prm[i].Id, Model.FromController)" type="button" class="btn btn-block btn-danger"><i class="fas fa-trash"></i> </a></td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+<!-- /. İçerikler Buraya-->

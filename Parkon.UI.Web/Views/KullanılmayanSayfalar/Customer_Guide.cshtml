@@ -1,0 +1,288 @@
+﻿
+@{
+    ViewBag.Title = "Musteri_Rehberi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <!--Üst Kısım Veri Griş Bölümü-->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- left column -->
+                <!--SAĞ TARAF KOMPLE-->
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            @*<h3 class="card-title">Different Height</h3>*@
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+
+                                    <!-- Profile Image -->
+                                    <div class="col-md-2">
+                                        <div class="card card-primary card-outline">
+                                            <div class="card-body box-profile">
+                                                <div class="text-center">
+                                                    <img class="profile-user-img img-fluid img-circle"
+                                                         src="~/Content/dist/img/bsh3.png"
+                                                         alt="User profile picture">
+                                                </div>
+
+                                                <h3 class="profile-username text-center">-Müşteri Firma Adı-</h3>
+
+                                                <p class="text-muted text-center">-SEKTÖR-</p>
+
+                                                <ul class="list-group list-group-unbordered mb-3">
+                                                    <li class="list-group-item">
+                                                        <b>Puan</b> <a class="float-right">5 / 5</a>
+                                                    </li>
+
+                                                </ul>
+
+                                                <a href="#" class="btn btn-primary btn-block">
+                                                    <i class="fas fa-plus"></i>  LOGO Yükle
+                                                </a>
+                                            </div>
+                                            <!-- /.card-body -->
+                                        </div>
+                                    </div>
+                                    <!-- /.card -->
+
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Müşteri Şirket Adını Giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label>Select</label>*@
+                                            <select class="form-control">
+                                                <option>-Müşteri Türü Seçiniz-</option>
+                                                <option>Aday</option>
+                                                <option>Aktif</option>
+                                                <option>Geçici</option>
+                                                <option>...</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="KOD Adını Giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label>Select</label>*@
+                                            <select class="form-control">
+                                                <option>-Bölge Seçiniz-</option>
+                                                <option>İstanbul</option>
+                                                <option>Tekirdağ</option>
+                                                <option>....</option>
+                                            </select>
+                                        </div>
+                                        <!-- Adres Bölümü -->
+                                        <div class="form-group">
+                                            @*<label>Textarea</label>*@
+                                            <textarea class="form-control" rows="2" placeholder="Adres ..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Harita Linki">
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label>Textarea</label>*@
+                                            <textarea class="form-control" rows="4" placeholder="Detaylı Bilgi ..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <!-- Telefon 1 -->
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Telefon 1 Giriniz">
+                                        </div>
+                                        <!-- Telefon 2 -->
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Telefon 2 Giriniz">
+                                        </div>
+                                        <!-- Telefon 1 -->
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Fax Giriniz">
+                                        </div>
+
+                                        <!-- Açıklama Bölümü -->
+                                        <div class="form-group">
+                                            @*<label>Textarea</label>*@
+                                            <textarea class="form-control" rows="2" placeholder="Açıklama ..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            @*<label for="exampleInputEmail1">Email address</label>*@
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Anahtar Kelime Giriniz..">
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-4 col-form-label">Bölüm/Fabrika/Şube Adı:</label>
+                                            <div class="col-sm-8">
+                                                <input type="email" class="form-control" id="inputName" value="MERKEZ">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+                <!--/.col (right) -->
+            </div>
+
+            <div class="card-footer">
+                <div class="col-lg-4">
+                    <div class="btn-group w-100 btn-lg">
+                        <span class="btn btn-success col fileinput-button">
+                            <i class="fas fa-plus"></i>
+                            <span>Kaydet</span>
+                        </span>
+                        <button type="button" class="btn btn-primary col start">
+                            <i class="fas fa-clone"></i>
+                            <span>Farklı Kaydet</span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+       <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!--/. Üst Kısım-->
+    <br />
+    <hr />
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Müşteri Şirket Rehberi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>KOD</th>
+                        <th>Müşteri Adı</th>
+                        <th>Puan</th>
+                        <th>Detaylı Bilgi</th>
+                        <th>Anahtar Kelime</th>
+                        <th>Telefon-1</th>
+                        <th>Telefon-2</th>
+                        <th>Fax</th>
+                        <th>Adres</th>
+                        <th>Harita Linki</th>
+                        <th>Bölge Adı</th>
+                        <th>Müşteri Türü</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BSH</td>
+                        <td>Bosch and Siemens Hausgerate</td>
+                        <td>5/5</td>
+                        <td>Gövde Kaynak Hattı Profinet Dönüşümü</td>
+                        <td align="center">BSH</td>
+                        <td>0216 320 00 00</td>
+                        <td>0216 320 00 01</td>
+                        <td>0216 320 00 03</td>
+                        <td>Çerkezköy Tekirdağ</td>
+                        <td>www.adres...</td>
+                        <td>Tekirdağ</td>
+                        <td>Aktif</td>
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    </tr>
+                    <tr>
+                        <td>BSH</td>
+                        <td>Bosch and Siemens Hausgerate</td>
+                        <td>5/5</td>
+                        <td>Gövde Kaynak Hattı Profinet Dönüşümü</td>
+                        <td align="center">BSH</td>
+                        <td>0216 320 00 00</td>
+                        <td>0216 320 00 01</td>
+                        <td>0216 320 00 03</td>
+                        <td>Çerkezköy Tekirdağ</td>
+                        <td>www.adres...</td>
+                        <td>Tekirdağ</td>
+                        <td>Aktif</td>
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    </tr>
+                    <tr>
+                        <td>BSH</td>
+                        <td>Bosch and Siemens Hausgerate</td>
+                        <td>5/5</td>
+                        <td>Gövde Kaynak Hattı Profinet Dönüşümü</td>
+                        <td align="center">BSH</td>
+                        <td>0216 320 00 00</td>
+                        <td>0216 320 00 01</td>
+                        <td>0216 320 00 03</td>
+                        <td>Çerkezköy Tekirdağ</td>
+                        <td>www.adres...</td>
+                        <td>Tekirdağ</td>
+                        <td>Aktif</td>
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    </tr>
+                    <tr>
+                        <td>BSH</td>
+                        <td>Bosch and Siemens Hausgerate</td>
+                        <td>5/5</td>
+                        <td>Gövde Kaynak Hattı Profinet Dönüşümü</td>
+                        <td align="center">BSH</td>
+                        <td>0216 320 00 00</td>
+                        <td>0216 320 00 01</td>
+                        <td>0216 320 00 03</td>
+                        <td>Çerkezköy Tekirdağ</td>
+                        <td>www.adres...</td>
+                        <td>Tekirdağ</td>
+                        <td>Aktif</td>
+                        <td><a href="#" type="button" class="btn btn-block btn-success"><i class="fas fa-edit"></i> </a></td>
+                    </tr>
+
+
+
+
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>KOD</th>
+                        <th>Müşteri Adı</th>
+                        <th>Puan</th>
+                        <th>Detaylı Bilgi</th>
+                        <th>Anahtar Kelime</th>
+                        <th>Telefon-1</th>
+                        <th>Telefon-2</th>
+                        <th>Fax</th>
+                        <th>Adres</th>
+                        <th>Harita Linki</th>
+                        <th>Bölge Adı</th>
+                        <th>Müşteri Türü</th>
+                        <th>Güncelle</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- /. İçerikler Buraya-->
+
+
+
+
+

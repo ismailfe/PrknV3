@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b07563a8dac4cd2aeb80b3553f26e56" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Customer_Contact" Width="1.5" PointX="5.25" PointY="115.625" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Customer_Section" Width="1.5" PointX="12.75" PointY="101.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Customer_Type" Width="1.5" PointX="5.25" PointY="197.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Customers" Width="1.5" PointX="10.5" PointY="130.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Keyword" Width="1.5" PointX="5.25" PointY="151.5" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Licenses" Width="1.5" PointX="5.25" PointY="145.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Meeting_Content" Width="1.5" PointX="9.75" PointY="106.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Meeting_JoinUser" Width="1.5" PointX="13.5" PointY="116.625" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Meeting_Status" Width="1.5" PointX="5.25" PointY="79.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Meeting_Type" Width="1.5" PointX="5.25" PointY="58.75" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Meetings" Width="1.5" PointX="7.5" PointY="90.375" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Project_Detail" Width="1.5" PointX="5.25" PointY="141.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Project_Rev" Width="1.5" PointX="10.5" PointY="116.375" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Projects" Width="1.5" PointX="7.5" PointY="124.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.SoftwareVersion" Width="1.5" PointX="5.25" PointY="213.5" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Address" Width="1.5" PointX="7.5" PointY="132" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_AddressCol" Width="1.5" PointX="5.25" PointY="132.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_AddressPos" Width="1.5" PointX="5.25" PointY="62.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_AddressRow" Width="1.5" PointX="5.25" PointY="106.5" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_AddressZone" Width="1.5" PointX="5.25" PointY="84" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Brand" Width="1.5" PointX="5.25" PointY="53.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Location" Width="1.5" PointX="5.25" PointY="201.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Logs" Width="1.5" PointX="5.25" PointY="45.625" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_OutAction" Width="1.5" PointX="5.25" PointY="209.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Product" Width="1.5" PointX="10.5" PointY="122.375" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_ProductBlock" Width="1.5" PointX="13.5" PointY="153.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_ProductGroup" Width="1.5" PointX="5.25" PointY="193" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_ProductType" Width="1.5" PointX="5.25" PointY="66.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_ProductUnit" Width="1.5" PointX="5.25" PointY="49.5" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_Warehouse" Width="1.5" PointX="15.75" PointY="155.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Store_WarehouseOut" Width="1.5" PointX="12.75" PointY="158.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Supplier_Contact" Width="1.5" PointX="8.25" PointY="115.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Supplier_Section" Width="1.5" PointX="9.75" PointY="96.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Supplier_Type" Width="1.5" PointX="5.25" PointY="92" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Suppliers" Width="1.5" PointX="7.5" PointY="97.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Task_Priority" Width="1.5" PointX="5.25" PointY="161.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Task_Status" Width="1.5" PointX="5.25" PointY="128" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Task_Type" Width="1.5" PointX="5.25" PointY="205.25" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Tasks" Width="1.5" PointX="9.75" PointY="156.625" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.test" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Title" Width="1.5" PointX="0.75" PointY="117.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Access" Width="1.5" PointX="5.25" PointY="88.125" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Authorization" Width="1.5" PointX="5.25" PointY="169.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Department" Width="1.5" PointX="5.25" PointY="75.875" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Level" Width="1.5" PointX="5.25" PointY="155.375" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Logs" Width="1.5" PointX="5.25" PointY="96" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Online" Width="1.5" PointX="5.25" PointY="124" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.User_Screen" Width="1.5" PointX="5.25" PointY="166" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Users" Width="1.5" PointX="3" PointY="110.5" />
+        <EntityTypeShape EntityType="DB_EMKPRKNModel.Zone" Width="1.5" PointX="5.25" PointY="71" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Contact_Customer_Contact" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Contact_Title" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Contact_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_JoinUser_Customer_Contact" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Project_Rev_Customer_Contact" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Projects_Customer_Contact" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Section_Customers" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Section_Zone" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Projects_Customer_Section" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customer_Type_Customer_Type" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customers_Customer_Type" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customers_Customers" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customers_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Customers_Zone" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Projects_Projects" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Keyword_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Licenses_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_Content_Meetings" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_Content_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_JoinUser_Meeting_JoinUser" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_JoinUser_Meetings" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_JoinUser_Supplier_Contact" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_JoinUser_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_Status_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meetings_Meeting_Status" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meeting_Type_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meetings_Meeting_Type" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Meetings_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Project_Detail_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Projects_Project_Detail" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Project_Rev_Projects" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Project_Rev_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Projects_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Projects" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Version_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Store_AddressCol" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Store_AddressPos" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Store_AddressRow" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Store_AddressZone" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Store_Location" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Address_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Warehouse_Store_Address" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_WarehouseOut_Store_Address" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_AddressCol_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_AddressPos_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_AddressRow_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_AddressZone_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Brand_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Location_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Logs_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_OutAction_Store_OutAction" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Warehouse_Store_OutAction" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_WarehouseOut_Store_OutAction" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Product_Store_ProductGroup" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Product_Store_ProductType" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Product_Store_ProductUnit" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Product_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Warehouse_Store_Product" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_WarehouseOut_Store_Product" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Warehouse_Store_ProductBlock" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_WarehouseOut_Store_ProductBlock" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_ProductGroup_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_ProductType_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_ProductUnit_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_Warehouse_Store_Warehouse" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Store_WarehouseOut_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Contact_Suppliers" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Contact_Title" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Contact_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Section_Suppliers" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Section_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Section_Zone" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Supplier_Type_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Suppliers_Suppliers" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Suppliers_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Suppliers_Zone" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Task_Priority_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Task_Priority" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Task_Status_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Task_Status" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Task_SubjectPrefix_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Task_SubjectPrefix" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Users1" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Tasks_Users2" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Title_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_Title" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Access_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Authorization_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Authorization_Users1" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Department_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_User_Department" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Level_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_User_Level" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Logs_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Online_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_User_Online" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_User_Screen_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_Users" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Users_Users2" />
+        <AssociationConnector Association="DB_EMKPRKNModel.FK_Zone_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

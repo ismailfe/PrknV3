@@ -1,0 +1,111 @@
+using Prkn.Model.Entities.Base;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Prkn.Model.Base
+{
+    public class BaseUser_Authorization : BaseEntity
+    {
+        public long? SetUserId { get; set; }
+        public long? C0 { get; set; }
+        public long? C1 { get; set; }
+        public long? C2 { get; set; }
+        public long? C3 { get; set; }
+        public long? C4 { get; set; }
+        public long? C5 { get; set; }
+        public long? C6 { get; set; }
+        public long? C7 { get; set; }
+        public long? C8 { get; set; }
+        public long? C9 { get; set; }
+        public long? C10 { get; set; }
+        public long? C11 { get; set; }
+        public long? C12 { get; set; }
+        public long? C13 { get; set; }
+        public long? C14 { get; set; }
+        public long? C15 { get; set; }
+        public long? C16 { get; set; }
+        public long? C17 { get; set; }
+        public long? C18 { get; set; }
+        public long? C19 { get; set; }
+        public long? C20 { get; set; }
+        public long? C21 { get; set; }
+        public long? C22 { get; set; }
+        public long? C23 { get; set; }
+        public long? C24 { get; set; }
+        public long? C25 { get; set; }
+        public long? C26 { get; set; }
+        public long? C27 { get; set; }
+        public long? C28 { get; set; }
+        public long? C29 { get; set; }
+        public long? C30 { get; set; }
+        public long? C31 { get; set; }
+        public long? C32 { get; set; }
+        public long? C33 { get; set; }
+        public long? C34 { get; set; }
+        public long? C35 { get; set; }
+        public long? C36 { get; set; }
+        public long? C37 { get; set; }
+        public long? C38 { get; set; }
+        public long? C39 { get; set; }
+        public long? C40 { get; set; }
+        public long? C41 { get; set; }
+        public long? C42 { get; set; }
+        public long? C43 { get; set; }
+        public long? C44 { get; set; }
+        public long? C45 { get; set; }
+        public long? C46 { get; set; }
+        public long? C47 { get; set; }
+        public long? C48 { get; set; }
+        public long? C49 { get; set; }
+        public long? C50 { get; set; }
+        public long? C51 { get; set; }
+        public long? C52 { get; set; }
+        public long? C53 { get; set; }
+        public long? C54 { get; set; }
+        public long? C55 { get; set; }
+        public long? C56 { get; set; }
+        public long? C57 { get; set; }
+        public long? C58 { get; set; }
+        public long? C59 { get; set; }
+        public long? C60 { get; set; }
+        public long? C61 { get; set; }
+        public long? C62 { get; set; }
+        public long? C63 { get; set; }
+        public long? C64 { get; set; }
+        public long? C65 { get; set; }
+        public long? C66 { get; set; }
+        public long? C67 { get; set; }
+        public long? C68 { get; set; }
+        public long? C69 { get; set; }
+        public long? C70 { get; set; }
+        public long? C71 { get; set; }
+        public long? C72 { get; set; }
+        public long? C73 { get; set; }
+        public long? C74 { get; set; }
+        public long? C75 { get; set; }
+        public long? C76 { get; set; }
+        public long? C77 { get; set; }
+        public long? C78 { get; set; }
+        public long? C79 { get; set; }
+        public long? C80 { get; set; }
+        public long? C81 { get; set; }
+        public long? C82 { get; set; }
+        public long? C83 { get; set; }
+        public long? C84 { get; set; }
+        public long? C85 { get; set; }
+        public long? C86 { get; set; }
+        public long? C87 { get; set; }
+        public long? C88 { get; set; }
+        public long? C89 { get; set; }
+        public long? C90 { get; set; }
+        public long? C91 { get; set; }
+        public long? C92 { get; set; }
+        public long? C93 { get; set; }
+        public long? C94 { get; set; }
+        public long? C95 { get; set; }
+        public long? C96 { get; set; }
+        public long? C97 { get; set; }
+        public long? C98 { get; set; }
+        public long? C99 { get; set; }
+    }
+}

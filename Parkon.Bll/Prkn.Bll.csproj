@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7CDE00B-1F81-4358-A356-C24EAADA433A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prkn.Bll</RootNamespace>
+    <AssemblyName>Prkn.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Images.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.4.4\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Local.MirrorDataBll\Customer\CustomerBll.cs" />
+    <Compile Include="Local.MirrorDataBll\Customer\CustomerContactBll.cs" />
+    <Compile Include="Local.MirrorDataBll\Customer\CustomerSectionBll.cs" />
+    <Compile Include="Local.MirrorDataBll\Customer\CustomerTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\General\SoftwareVersionBll.cs" />
+    <Compile Include="Base\BaseBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Customer\CustomerBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Customer\CustomerContactBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Customer\CustomerTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Customer\CustomerSectionBll.cs" />
+    <Compile Include="FileDirectory\DirectoryBll.cs" />
+    <Compile Include="Function\BllFunction.cs" />
+    <Compile Include="Function\Generator.cs" />
+    <Compile Include="Master.ParkonDataBll\General\CurrencyBll.cs" />
+    <Compile Include="Master.ParkonDataBll\General\KeywordBll.cs" />
+    <Compile Include="Master.ParkonDataBll\General\ZoneBll.cs" />
+    <Compile Include="Master.ParkonDataBll\General\TitleBll.cs" />
+    <Compile Include="Interfaces\IBaseBll.cs" />
+    <Compile Include="Local.MirrorDataBll\General\CurrencyBll.cs" />
+    <Compile Include="Local.MirrorDataBll\General\KeywordBll.cs" />
+    <Compile Include="Local.MirrorDataBll\General\SoftwareVersionBll.cs" />
+    <Compile Include="Local.MirrorDataBll\General\TitleBll.cs" />
+    <Compile Include="Local.MirrorDataBll\General\ZoneBll.cs" />
+    <Compile Include="Local.MirrorDataBll\Project\ProjectBll.cs" />
+    <Compile Include="Local.MirrorDataBll\Project\ProjectRevBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserAccessBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserAuthorizationBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserDepartmentBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserLoginLogoutBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserScreenBll.cs" />
+    <Compile Include="Local.MirrorDataBll\User\UserSystemLogsBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Meeting\MeetingTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Meeting\MeetingStatusBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferDetailsBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferStatusBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferRequestSourceBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferRequestTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Offer\OfferTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Project\ProjectRevBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Project\ProjectBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Local.SettingsDataBll\Settings\SettingsBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreBrandBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreOutActionBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreAddressPosBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreAddressRowBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreAddressColBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreLocationBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreAddressZoneBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreProductTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Store\StoreProductGroupBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Supplier\SupplierBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Supplier\SupplierContactBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Supplier\SupplierSectionBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Supplier\SupplierTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Task\TaskBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Task\TaskStatusBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Task\TaskTypeBll.cs" />
+    <Compile Include="Master.ParkonDataBll\Task\TaskPriorityBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserLoginLogoutBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserAccessBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserAuthorizationBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserScreenBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserSystemLogsBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserDepartmentBll.cs" />
+    <Compile Include="Master.ParkonDataBll\User\UserBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parkon.Dal\Prkn.Dal.csproj">
+      <Project>{18910350-5EF3-4CC1-ADBD-BBCB2BE86579}</Project>
+      <Name>Prkn.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parkon.Data.Local\Prkn.Data.Local.csproj">
+      <Project>{a2f1b6e6-7809-43b5-9c82-69f9c90012b9}</Project>
+      <Name>Prkn.Data.Local</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parkon.Data.Master\Prkn.Data.Master.csproj">
+      <Project>{5e74d96b-c882-4130-bc2d-bdd016de793e}</Project>
+      <Name>Prkn.Data.Master</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parkon.Model\Prkn.Model.csproj">
+      <Project>{11ce7698-37c4-4d76-8b7f-3e2bde7bdc60}</Project>
+      <Name>Prkn.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parkon.Common\Prkn.Common.csproj">
+      <Project>{cfd04c4a-89d0-4533-b9fc-8f82b8556338}</Project>
+      <Name>Prkn.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

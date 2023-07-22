@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view '__ExtendedProperties' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="__ExtendedProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="128" />
+          <Property Name="ObjectName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Value" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="OnlineUser" Type="nvarchar" MaxLength="100" />
+          <Property Name="WorkArea" Type="nvarchar" MaxLength="100" />
+          <Property Name="Job" Type="nvarchar" MaxLength="100" />
+          <Property Name="OldVal" Type="nvarchar" MaxLength="750" />
+          <Property Name="NewVal" Type="nvarchar" MaxLength="750" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Messages" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Prg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Type" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Value" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Level" Type="nvarchar" MaxLength="2048" />
+          <Property Name="UserNamew" Type="nvarchar" MaxLength="2048" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Password" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2048" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Title" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Job" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="2048" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Logs" EntityType="Self.Logs" store:Type="Tables" />
+          <EntitySet Name="Prg" EntityType="Self.Prg" store:Type="Tables" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" store:Type="Tables" />
+          <EntitySet Name="__ExtendedProperties" EntityType="Self.__ExtendedProperties" store:Type="Tables">
+            <DefiningQuery>SELECT 
+    [__ExtendedProperties].[Id] AS [Id], 
+    [__ExtendedProperties].[Type] AS [Type], 
+    [__ExtendedProperties].[ParentName] AS [ParentName], 
+    [__ExtendedProperties].[ObjectName] AS [ObjectName], 
+    [__ExtendedProperties].[Value] AS [Value]
+    FROM [__ExtendedProperties] AS [__ExtendedProperties]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_LOCALSETTINGSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logs" EntityType="Model.Logs" />
+          <EntitySet Name="Prg" EntityType="Model.Prg" />
+          <EntitySet Name="UserData" EntityType="Model.UserData" />
+          <EntitySet Name="C__ExtendedProperties" EntityType="Model.C__ExtendedProperties" />
+        </EntityContainer>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="OnlineUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WorkArea" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Job" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OldVal" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="NewVal" Type="String" MaxLength="750" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Messages" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Prg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="UserNamew" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Job" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="C__ExtendedProperties">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ParentName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DB_LOCALSETTINGSEntities">
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="Model.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Messages" ColumnName="Messages" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NewVal" ColumnName="NewVal" />
+                <ScalarProperty Name="OldVal" ColumnName="OldVal" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="WorkArea" ColumnName="WorkArea" />
+                <ScalarProperty Name="OnlineUser" ColumnName="OnlineUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prg">
+            <EntityTypeMapping TypeName="Model.Prg">
+              <MappingFragment StoreEntitySet="Prg">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserData">
+            <EntityTypeMapping TypeName="Model.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserNamew" ColumnName="UserNamew" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__ExtendedProperties">
+            <EntityTypeMapping TypeName="Model.C__ExtendedProperties">
+              <MappingFragment StoreEntitySet="__ExtendedProperties">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
